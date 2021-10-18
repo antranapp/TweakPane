@@ -11,14 +11,12 @@ import SwiftUI
 enum InputBladeOption {
     case none
     case options(_ options: [String])
+    case stepper(range: ClosedRange<Int>)
 }
 
 struct InputBlade: Blade {
     let name: String
-
     let option: InputBladeOption
-
-    // InputView
     var binding: InputBinding
 
     @ViewBuilder
@@ -76,10 +74,23 @@ struct InputBlade: Blade {
                     }
                 )
             )
+
+        case .stepper(let range):
+            StepperView(
+                name: name,
+                range: range,
+                stepValue: Binding(
+                    get: {
+                        binding.parameter as! Int
+                    },
+                    set: { newValue in
+                        binding.parameter = newValue
+                    }
+                )
+            )
         }
 
         Text(String(describing: binding.parameter))
-
     }
 
     // TODO: Instead of AnyView, we might want to create a AnyBlade
@@ -116,25 +127,15 @@ struct SegmentView<Value: Hashable & CustomStringConvertible>: View {
     }
 }
 
-struct TextView: View {
+struct StepperView: View {
     let name: String
-    @Binding var text: String
+    let range: ClosedRange<Int>
+
+    @Binding var stepValue: Int
 
     var body: some View {
-        TextField(name, text: $text)
+        Stepper(value: $stepValue, in: range) {
+            Text(name)
+        }
     }
 }
-
-struct DatePickerView: View {
-    let name: String
-    @Binding var date: Date
-
-    var body: some View {
-        DatePicker(
-            name,
-            selection: $date,
-            displayedComponents: [.date]
-        )
-    }
-}
-

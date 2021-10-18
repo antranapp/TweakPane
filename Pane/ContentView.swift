@@ -14,9 +14,20 @@ struct ContentView: View {
 
     @State var dateValue: Date = Date()
 
+    @State var intStepperValue: Int = 0
+
     var body: some View {
         VStack {
             Form {
+                Section(header: Text("Int Stepper Value")) {
+                    StepperView(
+                        name: "Int Stepper Value",
+                        range: 0...10,
+                        stepValue: $intStepperValue
+                    )
+                    Text(String(describing: intStepperValue))
+                }
+
                 Section(header: Text("Date Value")) {
                     DatePickerView(
                         name: "Date Value",
@@ -56,6 +67,11 @@ struct ContentView: View {
                 style: .standard,
                 content: {
                     Pane([
+                        InputBlade(
+                            name: "Int Stepper Input",
+                            option: .stepper(range: 0...10),
+                            binding: InputBinding($intStepperValue)
+                        ),
                         InputBlade(
                             name: "Date Input",
                             option: .none,

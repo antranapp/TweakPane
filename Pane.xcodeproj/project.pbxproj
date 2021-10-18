@@ -19,6 +19,8 @@
 		7F7B9AA0271BF3FC00522C99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7B9A9F271BF3FC00522C99 /* Assets.xcassets */; };
 		7F7B9AA3271BF3FC00522C99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7B9AA2271BF3FC00522C99 /* Preview Assets.xcassets */; };
 		7F7B9AAB271BF98100522C99 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7F7B9AAA271BF98100522C99 /* BottomSheet */; };
+		D70B74BE271E3E5500EE116E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B74BD271E3E5500EE116E /* DatePickerView.swift */; };
+		D70B74C0271E3E7000EE116E /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B74BF271E3E7000EE116E /* TextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		7F7B9A9D271BF3FA00522C99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F7B9A9F271BF3FC00522C99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F7B9AA2271BF3FC00522C99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D70B74BD271E3E5500EE116E /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		D70B74BF271E3E7000EE116E /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 		7F734DF9271CE09D0025279E /* Blades */ = {
 			isa = PBXGroup;
 			children = (
+				D70B74BC271E3DB700EE116E /* Views */,
 				7F734DF3271CE0070025279E /* Blade.swift */,
 				7F734DFA271CE0AB0025279E /* InputBlade.swift */,
 				7F734DFC271CE0C00025279E /* MonitoringBlade.swift */,
@@ -104,6 +109,15 @@
 				7F7B9AA2271BF3FC00522C99 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D70B74BC271E3DB700EE116E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D70B74BD271E3E5500EE116E /* DatePickerView.swift */,
+				D70B74BF271E3E7000EE116E /* TextView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +197,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F734DF1271CD6CC0025279E /* PaneView.swift in Sources */,
+				D70B74C0271E3E7000EE116E /* TextView.swift in Sources */,
 				7F734DF6271CE0480025279E /* Binding.swift in Sources */,
 				7F7B9A9E271BF3FA00522C99 /* ContentView.swift in Sources */,
 				7F734DFB271CE0AB0025279E /* InputBlade.swift in Sources */,
 				7F7B9A9C271BF3FA00522C99 /* PaneApp.swift in Sources */,
 				7F734DFD271CE0C00025279E /* MonitoringBlade.swift in Sources */,
+				D70B74BE271E3E5500EE116E /* DatePickerView.swift in Sources */,
 				7F734DEF271CD6810025279E /* Pane.swift in Sources */,
 				7F734DF8271CE0600025279E /* Parameter.swift in Sources */,
 				7F734DF4271CE0070025279E /* Blade.swift in Sources */,

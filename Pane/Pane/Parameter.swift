@@ -23,3 +23,5 @@ extension String: Parameter {}
 extension Character: Parameter {}
 
 extension Date: Parameter {}
+
+extension Int: Parameter {}
