@@ -12,6 +12,9 @@ import Combine
 // Pane -> Blade -> Binding/Monitoring
 // Use Sourcery to create a Pane for a View automatically by analysing the internal @State
 
+// TODO:
+// - Missing Panes:
+
 final class Pane {
     private var blades: [Blade]
 

@@ -26,28 +26,46 @@ struct InputBlade: Blade {
         switch option {
         case .none:
             if binding.parameter is Bool {
-                ToogleView(value: Binding(
-                    get: {
-                        binding.parameter as! Bool
-                    },
-                    set: { newValue in
-                        binding.parameter = newValue
-                    }
-                ))
+                ToogleView(
+                    name: name,
+                    value: Binding(
+                        get: {
+                            binding.parameter as! Bool
+                        },
+                        set: { newValue in
+                            binding.parameter = newValue
+                        }
+                    ))
             }
 
             if binding.parameter is String {
-                TextView(text: Binding(
-                    get: {
-                        binding.parameter as! String
-                    },
-                    set: { newValue in
-                        binding.parameter = newValue
-                    }
-                ))
+                TextView(
+                    name: name,
+                    text: Binding(
+                        get: {
+                            binding.parameter as! String
+                        },
+                        set: { newValue in
+                            binding.parameter = newValue
+                        }
+                    ))
+            }
+
+            if binding.parameter is Date {
+                DatePickerView(
+                    name: name,
+                    date: Binding(
+                        get: {
+                            binding.parameter as! Date
+                        },
+                        set: { newValue in
+                            binding.parameter = newValue
+                        }
+                    ))
             }
         case .options(let options):
             SegmentView(
+                name: name,
                 values: options,
                 selectedValue: Binding(
                     get: {
@@ -73,21 +91,23 @@ struct InputBlade: Blade {
 }
 
 struct ToogleView: View {
+    let name: String
     @Binding var value: Bool
 
     var body: some View {
         Toggle(isOn: $value) {
-            Text("Bool Value")
+            Text(name)
         }
     }
 }
 
 struct SegmentView<Value: Hashable & CustomStringConvertible>: View {
+    let name: String
     var values: [Value]
     @Binding var selectedValue: Value
 
     var body: some View {
-        Picker("Segment Value", selection: $selectedValue) {
+        Picker(name, selection: $selectedValue) {
             ForEach(values, id: \.self) {
                 Text($0.description)
             }
@@ -97,10 +117,24 @@ struct SegmentView<Value: Hashable & CustomStringConvertible>: View {
 }
 
 struct TextView: View {
+    let name: String
     @Binding var text: String
 
     var body: some View {
-        TextField("Text value", text: $text)
+        TextField(name, text: $text)
+    }
+}
+
+struct DatePickerView: View {
+    let name: String
+    @Binding var date: Date
+
+    var body: some View {
+        DatePicker(
+            name,
+            selection: $date,
+            displayedComponents: [.date]
+        )
     }
 }
 

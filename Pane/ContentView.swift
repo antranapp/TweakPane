@@ -3,21 +3,31 @@ import BottomSheet
 import Combine
 
 
-
 struct ContentView: View {
     @State var isSheetExpanded = true
 
     @State var boolValue: Bool = false
     @State var textValue: String = ""
 
-    @State var selectedSegmentValue: String = "1"
-    private let segmentValues = ["1", "2", "3"]
+    @State var selectedSegmentValue: String = "Value 1"
+    private let segmentValues = ["Value 1", "Value 2", "Value 3"]
+
+    @State var dateValue: Date = Date()
 
     var body: some View {
         VStack {
             Form {
+                Section(header: Text("Date Value")) {
+                    DatePickerView(
+                        name: "Date Value",
+                        date: $dateValue
+                    )
+                    Text(String(describing: dateValue))
+                }
+
                 Section(header: Text("Segmented Value")) {
                     SegmentView(
+                        name: "Segmented Value",
                         values: segmentValues,
                         selectedValue: $selectedSegmentValue
                     )
@@ -30,7 +40,10 @@ struct ContentView: View {
                 }
 
                 Section(header: Text("Bool Value")) {
-                    ToogleView(value: $boolValue)
+                    ToogleView(
+                        name: "Bool Value",
+                        value: $boolValue
+                    )
                     Text(String(describing: boolValue))
                 }
             }
@@ -43,6 +56,11 @@ struct ContentView: View {
                 style: .standard,
                 content: {
                     Pane([
+                        InputBlade(
+                            name: "Date Input",
+                            option: .none,
+                            binding: InputBinding(parameter: $dateValue.asParameterBinding)
+                        ),
                         InputBlade(
                             name: "Picker Input",
                             option: .options(segmentValues),

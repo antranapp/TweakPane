@@ -41,3 +41,16 @@ extension Binding where Value == String {
         )
     }
 }
+
+extension Binding where Value == Date {
+    var asParameterBinding: Binding<Parameter> {
+        Binding<Parameter>(
+            get: {
+                wrappedValue
+            },
+            set: { newValue in
+                wrappedValue = newValue as! Date
+            }
+        )
+    }
+}

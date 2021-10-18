@@ -21,3 +21,5 @@ extension Parameter {
 extension Bool: Parameter {}
 extension String: Parameter {}
 extension Character: Parameter {}
+
+extension Date: Parameter {}
