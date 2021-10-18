@@ -12,8 +12,36 @@ struct InputBinding {
     @Binding var parameter: Parameter
 }
 
+extension InputBinding {
+    init(_ value: Binding<String>) {
+        _parameter = value.asParameterBinding
+    }
+
+    init(_ value: Binding<Date>) {
+        _parameter = value.asParameterBinding
+    }
+
+    init(_ value: Binding<Bool>) {
+        _parameter = value.asParameterBinding
+    }
+}
+
 struct MonitorBinding {
     @Binding var parameter: Parameter
+}
+
+extension MonitorBinding {
+    init(_ value: Binding<String>) {
+        _parameter = value.asParameterBinding
+    }
+
+    init(_ value: Binding<Date>) {
+        _parameter = value.asParameterBinding
+    }
+
+    init(_ value: Binding<Bool>) {
+        _parameter = value.asParameterBinding
+    }
 }
 
 extension Binding where Value == Bool {

@@ -59,26 +59,26 @@ struct ContentView: View {
                         InputBlade(
                             name: "Date Input",
                             option: .none,
-                            binding: InputBinding(parameter: $dateValue.asParameterBinding)
+                            binding: InputBinding($dateValue)
                         ),
                         InputBlade(
                             name: "Picker Input",
                             option: .options(segmentValues),
-                            binding: InputBinding(parameter: $selectedSegmentValue.asParameterBinding)
+                            binding: InputBinding($selectedSegmentValue)
                         ),
                         InputBlade(
                             name: "Text Input",
                             option: .none,
-                            binding: InputBinding(parameter: $textValue.asParameterBinding)
+                            binding: InputBinding($textValue)
                         ),
                         MonitoringBlade(
                             name: "Text Monitor",
-                            binding: MonitorBinding(parameter: $textValue.asParameterBinding)
+                            binding: MonitorBinding($textValue)
                         ),
                         InputBlade(
                             name: "Bool Input",
                             option: .none,
-                            binding: InputBinding(parameter: $boolValue.asParameterBinding)
+                            binding: InputBinding($boolValue)
                         ),
                     ]).render()
                 }
