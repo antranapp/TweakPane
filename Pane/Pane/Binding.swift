@@ -28,6 +28,10 @@ extension InputBinding {
     init(_ value: Binding<Int>) {
         _parameter = value.asParameterBinding
     }
+
+    init(_ value: Binding<Double>) {
+        _parameter = value.asParameterBinding
+    }
 }
 
 struct MonitorBinding {
@@ -95,6 +99,19 @@ extension Binding where Value == Int {
             },
             set: { newValue in
                 wrappedValue = newValue as! Int
+            }
+        )
+    }
+}
+
+extension Binding where Value == Double {
+    var asParameterBinding: Binding<Parameter> {
+        Binding<Parameter>(
+            get: {
+                wrappedValue
+            },
+            set: { newValue in
+                wrappedValue = newValue as! Double
             }
         )
     }

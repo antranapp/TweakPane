@@ -25,3 +25,4 @@ extension Character: Parameter {}
 extension Date: Parameter {}
 
 extension Int: Parameter {}
+extension Double: Parameter {}

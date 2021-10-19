@@ -15,10 +15,20 @@ struct ContentView: View {
     @State var dateValue: Date = Date()
 
     @State var intStepperValue: Int = 0
+    @State var doubleSliderValue: Double = 0
 
     var body: some View {
         VStack {
             Form {
+                Section(header: Text("Double Slider Value")) {
+                    SliderView(
+                        name: "Double Stepper Value",
+                        range: 0...10,
+                        sliderValue: $doubleSliderValue
+                    )
+                    Text(String(describing: doubleSliderValue))
+                }
+
                 Section(header: Text("Int Stepper Value")) {
                     StepperView(
                         name: "Int Stepper Value",
@@ -67,6 +77,11 @@ struct ContentView: View {
                 style: .standard,
                 content: {
                     Pane([
+                        InputBlade(
+                            name: "Double Stepper Input",
+                            option: .slider(range: 0...10),
+                            binding: InputBinding($doubleSliderValue)
+                        ),
                         InputBlade(
                             name: "Int Stepper Input",
                             option: .stepper(range: 0...10),

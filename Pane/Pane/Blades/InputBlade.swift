@@ -12,6 +12,7 @@ enum InputBladeOption {
     case none
     case options(_ options: [String])
     case stepper(range: ClosedRange<Int>)
+    case slider(range: ClosedRange<Double>)
 }
 
 struct InputBlade: Blade {
@@ -88,6 +89,20 @@ struct InputBlade: Blade {
                     }
                 )
             )
+
+        case .slider(let range):
+            SliderView(
+                name: name,
+                range: range,
+                sliderValue: Binding(
+                    get: {
+                        binding.parameter as! Double
+                    },
+                    set: { newValue in
+                        binding.parameter = newValue
+                    }
+                )
+            )
         }
 
         Text(String(describing: binding.parameter))
@@ -127,15 +142,29 @@ struct SegmentView<Value: Hashable & CustomStringConvertible>: View {
     }
 }
 
-struct StepperView: View {
+struct StepperView<Value>: View where Value: Comparable & Strideable {
     let name: String
-    let range: ClosedRange<Int>
+    let range: ClosedRange<Value>
 
-    @Binding var stepValue: Int
+    @Binding var stepValue: Value
 
     var body: some View {
         Stepper(value: $stepValue, in: range) {
             Text(name)
+        }
+    }
+}
+
+struct SliderView<Value>: View where Value: BinaryFloatingPoint, Value.Stride: BinaryFloatingPoint {
+    let name: String
+    let range: ClosedRange<Value>
+
+    @Binding var sliderValue: Value
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(name)
+            Slider(value: $sliderValue, in: range)
         }
     }
 }
