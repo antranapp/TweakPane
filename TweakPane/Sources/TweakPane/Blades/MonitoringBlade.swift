@@ -8,11 +8,17 @@
 import Foundation
 import SwiftUI
 
-struct MonitoringBlade: Blade {
-    var name: String
-    // MonitoringView
-
+public struct MonitoringBlade: Blade {
+    public var name: String
     let binding: MonitorBinding
+
+    public init(
+        name: String,
+        binding: MonitorBinding
+    ) {
+        self.name = name
+        self.binding = binding
+    }
 
     @ViewBuilder
     private func renderInternally() -> some View {
@@ -27,7 +33,7 @@ struct MonitoringBlade: Blade {
 
     // TODO: Instead of AnyView, we might want to create a AnyBlade
     // to abstract the underlying concrete blade
-    func render() -> AnyView {
+    public func render() -> AnyView {
         AnyView(renderInternally())
     }
 

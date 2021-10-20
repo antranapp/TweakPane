@@ -15,14 +15,14 @@ import Combine
 // TODO:
 // - Missing Panes:
 
-final class Pane {
+public final class Pane {
     private var blades: [Blade]
 
-    init(_ blades: [Blade]) {
+    public init(_ blades: [Blade]) {
         self.blades = blades
     }
 
-    func render() -> some View {
+    public func render() -> some View {
         PaneView(blades)
     }
 }

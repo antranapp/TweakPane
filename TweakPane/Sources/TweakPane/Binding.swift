@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-struct InputBinding {
+public struct InputBinding {
     @Binding var parameter: Parameter
 }
 
-extension InputBinding {
+public extension InputBinding {
     init(_ value: Binding<String>) {
         _parameter = value.asParameterBinding
     }
@@ -32,13 +32,17 @@ extension InputBinding {
     init(_ value: Binding<Double>) {
         _parameter = value.asParameterBinding
     }
+
+    init(_ value: Binding<Color>) {
+        _parameter = value.asParameterBinding
+    }
 }
 
-struct MonitorBinding {
+public struct MonitorBinding {
     @Binding var parameter: Parameter
 }
 
-extension MonitorBinding {
+public extension MonitorBinding {
     init(_ value: Binding<String>) {
         _parameter = value.asParameterBinding
     }
@@ -52,7 +56,7 @@ extension MonitorBinding {
     }
 }
 
-extension Binding where Value == Bool {
+public extension Binding where Value == Bool {
     var asParameterBinding: Binding<Parameter> {
         Binding<Parameter>(
             get: {
@@ -65,7 +69,7 @@ extension Binding where Value == Bool {
     }
 }
 
-extension Binding where Value == String {
+public extension Binding where Value == String {
     var asParameterBinding: Binding<Parameter> {
         Binding<Parameter>(
             get: {
@@ -78,7 +82,7 @@ extension Binding where Value == String {
     }
 }
 
-extension Binding where Value == Date {
+public extension Binding where Value == Date {
     var asParameterBinding: Binding<Parameter> {
         Binding<Parameter>(
             get: {
@@ -91,7 +95,7 @@ extension Binding where Value == Date {
     }
 }
 
-extension Binding where Value == Int {
+public extension Binding where Value == Int {
     var asParameterBinding: Binding<Parameter> {
         Binding<Parameter>(
             get: {
@@ -104,7 +108,7 @@ extension Binding where Value == Int {
     }
 }
 
-extension Binding where Value == Double {
+public extension Binding where Value == Double {
     var asParameterBinding: Binding<Parameter> {
         Binding<Parameter>(
             get: {
@@ -112,6 +116,19 @@ extension Binding where Value == Double {
             },
             set: { newValue in
                 wrappedValue = newValue as! Double
+            }
+        )
+    }
+}
+
+extension Binding where Value == Color {
+    var asParameterBinding: Binding<Parameter> {
+        Binding<Parameter>(
+            get: {
+                wrappedValue
+            },
+            set: { newValue in
+                wrappedValue = newValue as! Color
             }
         )
     }

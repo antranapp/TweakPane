@@ -7,37 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F734DEF271CD6810025279E /* Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F734DEE271CD6810025279E /* Pane.swift */; };
-		7F734DF1271CD6CC0025279E /* PaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F734DF0271CD6CC0025279E /* PaneView.swift */; };
-		7F734DF4271CE0070025279E /* Blade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F734DF3271CE0070025279E /* Blade.swift */; };
-		7F734DF6271CE0480025279E /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F734DF5271CE0480025279E /* Binding.swift */; };
-		7F734DF8271CE0600025279E /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F734DF7271CE0600025279E /* Parameter.swift */; };
-		7F734DFB271CE0AB0025279E /* InputBlade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F734DFA271CE0AB0025279E /* InputBlade.swift */; };
-		7F734DFD271CE0C00025279E /* MonitoringBlade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F734DFC271CE0C00025279E /* MonitoringBlade.swift */; };
 		7F7B9A9C271BF3FA00522C99 /* PaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B9A9B271BF3FA00522C99 /* PaneApp.swift */; };
 		7F7B9A9E271BF3FA00522C99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B9A9D271BF3FA00522C99 /* ContentView.swift */; };
 		7F7B9AA0271BF3FC00522C99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7B9A9F271BF3FC00522C99 /* Assets.xcassets */; };
 		7F7B9AA3271BF3FC00522C99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7B9AA2271BF3FC00522C99 /* Preview Assets.xcassets */; };
 		7F7B9AAB271BF98100522C99 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7F7B9AAA271BF98100522C99 /* BottomSheet */; };
-		D70B74BE271E3E5500EE116E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B74BD271E3E5500EE116E /* DatePickerView.swift */; };
-		D70B74C0271E3E7000EE116E /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B74BF271E3E7000EE116E /* TextView.swift */; };
+		D78283D22720C46B00CC059C /* TweakPane in Frameworks */ = {isa = PBXBuildFile; productRef = D78283D12720C46B00CC059C /* TweakPane */; };
+		D78283D62720C8A100CC059C /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283D32720C8A100CC059C /* TextView.swift */; };
+		D78283D72720C8A100CC059C /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283D42720C8A100CC059C /* ColorPickerView.swift */; };
+		D78283D82720C8A100CC059C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283D52720C8A100CC059C /* DatePickerView.swift */; };
+		D78283DA2720C93700CC059C /* OtherViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283D92720C93700CC059C /* OtherViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F734DEE271CD6810025279E /* Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pane.swift; sourceTree = "<group>"; };
-		7F734DF0271CD6CC0025279E /* PaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneView.swift; sourceTree = "<group>"; };
-		7F734DF3271CE0070025279E /* Blade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blade.swift; sourceTree = "<group>"; };
-		7F734DF5271CE0480025279E /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
-		7F734DF7271CE0600025279E /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
-		7F734DFA271CE0AB0025279E /* InputBlade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBlade.swift; sourceTree = "<group>"; };
-		7F734DFC271CE0C00025279E /* MonitoringBlade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringBlade.swift; sourceTree = "<group>"; };
 		7F7B9A98271BF3FA00522C99 /* Pane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7B9A9B271BF3FA00522C99 /* PaneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneApp.swift; sourceTree = "<group>"; };
 		7F7B9A9D271BF3FA00522C99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F7B9A9F271BF3FC00522C99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F7B9AA2271BF3FC00522C99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D70B74BD271E3E5500EE116E /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
-		D70B74BF271E3E7000EE116E /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		D78283CF2720C42900CC059C /* TweakPane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TweakPane; sourceTree = "<group>"; };
+		D78283D32720C8A100CC059C /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextView.swift; path = TweakPane/Sources/TweakPane/Blades/Views/TextView.swift; sourceTree = SOURCE_ROOT; };
+		D78283D42720C8A100CC059C /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPickerView.swift; path = TweakPane/Sources/TweakPane/Blades/Views/ColorPickerView.swift; sourceTree = SOURCE_ROOT; };
+		D78283D52720C8A100CC059C /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerView.swift; path = TweakPane/Sources/TweakPane/Blades/Views/DatePickerView.swift; sourceTree = SOURCE_ROOT; };
+		D78283D92720C93700CC059C /* OtherViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OtherViews.swift; path = TweakPane/Sources/TweakPane/Blades/Views/OtherViews.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,40 +38,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F7B9AAB271BF98100522C99 /* BottomSheet in Frameworks */,
+				D78283D22720C46B00CC059C /* TweakPane in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7F734DF2271CDFF70025279E /* Pane */ = {
+		7F734DF2271CDFF70025279E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7F734DF9271CE09D0025279E /* Blades */,
-				7F734DEE271CD6810025279E /* Pane.swift */,
-				7F734DF0271CD6CC0025279E /* PaneView.swift */,
-				7F734DF5271CE0480025279E /* Binding.swift */,
-				7F734DF7271CE0600025279E /* Parameter.swift */,
+				D78283D92720C93700CC059C /* OtherViews.swift */,
+				D78283D42720C8A100CC059C /* ColorPickerView.swift */,
+				D78283D52720C8A100CC059C /* DatePickerView.swift */,
+				D78283D32720C8A100CC059C /* TextView.swift */,
 			);
-			path = Pane;
-			sourceTree = "<group>";
-		};
-		7F734DF9271CE09D0025279E /* Blades */ = {
-			isa = PBXGroup;
-			children = (
-				D70B74BC271E3DB700EE116E /* Views */,
-				7F734DF3271CE0070025279E /* Blade.swift */,
-				7F734DFA271CE0AB0025279E /* InputBlade.swift */,
-				7F734DFC271CE0C00025279E /* MonitoringBlade.swift */,
-			);
-			path = Blades;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7F7B9A8F271BF3FA00522C99 = {
 			isa = PBXGroup;
 			children = (
+				D78283CF2720C42900CC059C /* TweakPane */,
 				7F7B9A9A271BF3FA00522C99 /* Pane */,
 				7F7B9A99271BF3FA00522C99 /* Products */,
+				D78283D02720C46B00CC059C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,7 +77,7 @@
 		7F7B9A9A271BF3FA00522C99 /* Pane */ = {
 			isa = PBXGroup;
 			children = (
-				7F734DF2271CDFF70025279E /* Pane */,
+				7F734DF2271CDFF70025279E /* Views */,
 				7F7B9A9B271BF3FA00522C99 /* PaneApp.swift */,
 				7F7B9A9D271BF3FA00522C99 /* ContentView.swift */,
 				7F7B9A9F271BF3FC00522C99 /* Assets.xcassets */,
@@ -111,13 +94,11 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D70B74BC271E3DB700EE116E /* Views */ = {
+		D78283D02720C46B00CC059C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D70B74BD271E3E5500EE116E /* DatePickerView.swift */,
-				D70B74BF271E3E7000EE116E /* TextView.swift */,
 			);
-			path = Views;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +119,7 @@
 			name = Pane;
 			packageProductDependencies = (
 				7F7B9AAA271BF98100522C99 /* BottomSheet */,
+				D78283D12720C46B00CC059C /* TweakPane */,
 			);
 			productName = Pane;
 			productReference = 7F7B9A98271BF3FA00522C99 /* Pane.app */;
@@ -196,17 +178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F734DF1271CD6CC0025279E /* PaneView.swift in Sources */,
-				D70B74C0271E3E7000EE116E /* TextView.swift in Sources */,
-				7F734DF6271CE0480025279E /* Binding.swift in Sources */,
+				D78283D72720C8A100CC059C /* ColorPickerView.swift in Sources */,
+				D78283D82720C8A100CC059C /* DatePickerView.swift in Sources */,
+				D78283D62720C8A100CC059C /* TextView.swift in Sources */,
 				7F7B9A9E271BF3FA00522C99 /* ContentView.swift in Sources */,
-				7F734DFB271CE0AB0025279E /* InputBlade.swift in Sources */,
 				7F7B9A9C271BF3FA00522C99 /* PaneApp.swift in Sources */,
-				7F734DFD271CE0C00025279E /* MonitoringBlade.swift in Sources */,
-				D70B74BE271E3E5500EE116E /* DatePickerView.swift in Sources */,
-				7F734DEF271CD6810025279E /* Pane.swift in Sources */,
-				7F734DF8271CE0600025279E /* Parameter.swift in Sources */,
-				7F734DF4271CE0070025279E /* Blade.swift in Sources */,
+				D78283DA2720C93700CC059C /* OtherViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +405,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F7B9AA9271BF98100522C99 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
+		};
+		D78283D12720C46B00CC059C /* TweakPane */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TweakPane;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

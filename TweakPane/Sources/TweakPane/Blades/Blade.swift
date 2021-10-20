@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-protocol Blade {
+public protocol Blade {
     var name: String { get }
     func render() -> AnyView
 }
 
-protocol BladeContainer: Blade {
+public protocol BladeContainer: Blade {
     var blades: [Blade] { get }
 }
 

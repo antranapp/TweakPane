@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
-protocol Parameter {
+public protocol Parameter {
     var asParameter: Parameter { get set }
 }
 
 extension Parameter {
-    var asParameter: Parameter {
+    public var asParameter: Parameter {
         get {self as Parameter}
         set {self = newValue as! Self}
     }
@@ -26,3 +27,5 @@ extension Date: Parameter {}
 
 extension Int: Parameter {}
 extension Double: Parameter {}
+
+extension Color: Parameter {}
