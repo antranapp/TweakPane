@@ -23,6 +23,5 @@ struct ContentView: View {
                 }
 
         }
-        .font(.headline)
     }
 }

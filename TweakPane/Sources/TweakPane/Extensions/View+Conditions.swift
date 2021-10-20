@@ -1,5 +1,8 @@
 //
-// Copyright © 2021 An Tran. All rights reserved.
+//  File.swift
+//  
+//
+//  Created by Binh An Tran on 21/10/21.
 //
 
 import SwiftUI

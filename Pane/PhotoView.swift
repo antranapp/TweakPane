@@ -75,7 +75,7 @@ public struct PhotoView: View {
             Pane([
                 InputBlade(
                     name: "Resizing",
-                    option: .options(PhotoViewModel.Constants.resizingOptions),
+                    option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
                     binding: InputBinding($viewModel.selectedResizingOption)
                 ),
             ]).render()

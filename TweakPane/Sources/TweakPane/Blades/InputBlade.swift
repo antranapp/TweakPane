@@ -9,8 +9,13 @@ import Foundation
 import SwiftUI
 
 public enum InputBladeOption {
+    public enum Style {
+        case segmented
+        case menu
+    }
+
     case none
-    case options(_ options: [String])
+    case options(_ options: [String], style: Style)
     case stepper(range: ClosedRange<Int>)
     case slider(range: ClosedRange<Double>)
 }
@@ -72,10 +77,11 @@ public struct InputBlade: Blade {
                         }
                     ))
             }
-        case .options(let options):
+        case .options(let options, let style):
             SegmentView(
                 name: name,
                 values: options,
+                style: style,
                 selectedValue: Binding(
                     get: {
                         binding.parameter as! String

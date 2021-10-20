@@ -46,3 +46,17 @@ struct SliderView<Value>: View where Value: BinaryFloatingPoint, Value.Stride: B
     }
 }
 
+struct SegmentView<Value: Hashable & CustomStringConvertible>: View {
+    let name: String
+    var values: [Value]
+    @Binding var selectedValue: Value
+
+    var body: some View {
+        Picker(name, selection: $selectedValue) {
+            ForEach(values, id: \.self) {
+                Text($0.description)
+            }
+        }
+        .pickerStyle(MenuPickerStyle())
+    }
+}

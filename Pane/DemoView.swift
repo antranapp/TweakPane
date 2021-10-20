@@ -94,7 +94,7 @@ struct DemoView: View {
                         ),
                         InputBlade(
                             name: "Picker Input",
-                            option: .options(segmentValues),
+                            option: .options(segmentValues, style: .segmented),
                             binding: InputBinding($selectedSegmentValue)
                         ),
                         InputBlade(
