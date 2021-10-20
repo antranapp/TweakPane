@@ -3,7 +3,7 @@ import BottomSheet
 import Combine
 import TweakPane
 
-struct ContentView: View {
+struct DemoView: View {
     @State var isSheetExpanded = true
 
     @State var boolValue: Bool = false
@@ -72,7 +72,7 @@ struct ContentView: View {
         .bottomSheet(
             BottomSheet(
                 isExpanded: $isSheetExpanded,
-                minHeight: .points(100),
+                minHeight: .points(120),
                 maxHeight: .points(500),
                 style: .standard,
                 content: {
