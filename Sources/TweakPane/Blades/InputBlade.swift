@@ -75,7 +75,22 @@ public struct InputBlade: Blade {
                         set: { newValue in
                             binding.parameter = newValue
                         }
-                    ))
+                    )
+                )
+            }
+
+            if binding.parameter is Color {
+                ColorPickerView(
+                    name: name,
+                    color: Binding(
+                        get: {
+                            binding.parameter as! Color
+                        },
+                        set: { newValue in
+                            binding.parameter = newValue
+                        }
+                    )
+                )
             }
         case .options(let options, let style):
             SegmentView(

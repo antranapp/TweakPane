@@ -39,7 +39,7 @@ public struct PhotoView: View {
                         $0.aspectRatio(contentMode: viewModel.aspectRatio!)
                     }
                     .frame(width: 300, height: 300)
-                    .border(Color.red, width: 3)
+                    .border(viewModel.borderColor, width: 3)
                     .if(viewModel.clipped) {
                         $0.clipped()
                     }
@@ -78,14 +78,21 @@ public struct PhotoView: View {
                     option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
                     binding: InputBinding($viewModel.selectedResizingOption)
                 ),
+
                 InputBlade(
                     name: "Aspect Ratio",
                     option: .options(PhotoViewModel.Constants.aspectRatioOptions, style: .segmented),
                     binding: InputBinding($viewModel.selectedAspectRatioOption)
                 ),
+
                 InputBlade(
                     name: "Clipped",
                     binding: InputBinding($viewModel.clipped)
+                ),
+
+                InputBlade(
+                    name: "Border Color",
+                    binding: InputBinding($viewModel.borderColor)
                 )
             ]).render()
         }

@@ -20,3 +20,18 @@ struct DatePickerView: View {
         )
     }
 }
+
+//extension DatePickerView {
+//    init(name: String, binding: Binding<Parameter>) {
+//        self.name = name
+//        _date = Binding(
+//            get: {
+//                binding.wrappedValue as! Date
+//            },
+//            set: { newValue in
+//                binding.wrappedValue = newValue
+//            }
+//        )
+//    }
+//}
+//
