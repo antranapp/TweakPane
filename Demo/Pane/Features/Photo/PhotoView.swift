@@ -38,6 +38,7 @@ public struct PhotoView: View {
                     .if(viewModel.aspectRatio != nil) {
                         $0.aspectRatio(contentMode: viewModel.aspectRatio!)
                     }
+                    .rotationEffect(.degrees(viewModel.rotation))
                     .frame(width: 300, height: 300)
                     .border(viewModel.borderColor, width: viewModel.borderWidth)
                     .if(viewModel.clipped) {
@@ -97,8 +98,14 @@ public struct PhotoView: View {
 
                 InputBlade(
                     name: "Border Width",
-                    option: .slider(range: 2...10),
+                    option: .stepperDouble(range: 2...10),
                     binding: InputBinding($viewModel.borderWidth)
+                ),
+
+                InputBlade(
+                    name: "Rotation",
+                    option: .slider(range: -180...180),
+                    binding: InputBinding($viewModel.rotation)
                 )
             ]).render()
         }

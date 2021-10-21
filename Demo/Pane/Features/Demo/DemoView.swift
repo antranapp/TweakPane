@@ -84,7 +84,12 @@ struct DemoView: View {
                         ),
                         InputBlade(
                             name: "Int Stepper Input",
-                            option: .stepper(range: 0...10),
+                            option: .stepperInt(range: 0...10),
+                            binding: InputBinding($intStepperValue)
+                        ),
+                        InputBlade(
+                            name: "Double Stepper Input",
+                            option: .stepperDouble(range: 0...10),
                             binding: InputBinding($intStepperValue)
                         ),
                         InputBlade(

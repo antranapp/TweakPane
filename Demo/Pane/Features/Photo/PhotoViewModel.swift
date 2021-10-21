@@ -32,6 +32,8 @@ final class PhotoViewModel: ObservableObject {
     @Published var borderColor: Color = .red
     @Published var borderWidth: Double = 4
 
+    @Published var rotation: Double = 0
+
     @Published var selectedSourceIndex = 0
     @Published var imageURLString: String = ""
     @Published var isLoading: Bool = false
@@ -39,7 +41,6 @@ final class PhotoViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
 
     init() {
-
         $selectedSourceIndex
             .sink { [weak self] value in
                 if value == 0 {
