@@ -1,8 +1,5 @@
 //
-//  ContentView.swift
-//  Pane
-//
-//  Created by Binh An Tran on 21/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -21,7 +18,11 @@ struct ContentView: View {
                     Image(systemName: "2.square.fill")
                     Text("Demo")
                 }
-
+            SimpleView()
+                .tabItem {
+                    Image(systemName: "3.circle.fill")
+                    Text("Simple")
+                }
         }
     }
 }

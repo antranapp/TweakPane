@@ -1,8 +1,5 @@
 //
-//  PaneView.swift
-//  Pane
-//
-//  Created by An Tran on 18/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -19,7 +16,7 @@ struct PaneView: View {
     var body: some View {
         Form {
             // TODO: Find a way so that we can get rid of interating over indices
-            ForEach(blades.indices, id: \.self ){ index in
+            ForEach(blades.indices, id: \.self) { index in
                 Section(header: Text(blades[index].name)) {
                     VStack {
                         blades[index].render()

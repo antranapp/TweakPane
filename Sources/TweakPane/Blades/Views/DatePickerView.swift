@@ -1,8 +1,5 @@
 //
-//  DatePickerView.swift
-//  Pane
-//
-//  Created by Binh An Tran on 19/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -21,7 +18,7 @@ struct DatePickerView: View {
     }
 }
 
-//extension DatePickerView {
+// extension DatePickerView {
 //    init(name: String, binding: Binding<Parameter>) {
 //        self.name = name
 //        _date = Binding(
@@ -33,5 +30,5 @@ struct DatePickerView: View {
 //            }
 //        )
 //    }
-//}
+// }
 //

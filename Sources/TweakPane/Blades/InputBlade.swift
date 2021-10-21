@@ -1,8 +1,5 @@
 //
-//  InputBlade.swift
-//  Pane
-//
-//  Created by An Tran on 18/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -85,7 +82,6 @@ public struct InputBlade: Blade {
                     )
                 )
 
-
             case .slider(let range):
                 SliderView(
                     name: name,
@@ -117,7 +113,8 @@ public struct InputBlade: Blade {
                     set: { newValue in
                         binding.parameter = newValue
                     }
-                ))
+                )
+            )
         }
 
         if binding.parameter is String {
@@ -130,7 +127,8 @@ public struct InputBlade: Blade {
                     set: { newValue in
                         binding.parameter = newValue
                     }
-                ))
+                )
+            )
         }
 
         if binding.parameter is Date {

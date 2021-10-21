@@ -1,13 +1,10 @@
 //
-//  Pane.swift
-//  Pane
-//
-//  Created by An Tran on 18/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
+import Combine
 import Foundation
 import SwiftUI
-import Combine
 
 // Pane -> Blade -> Binding/Monitoring
 

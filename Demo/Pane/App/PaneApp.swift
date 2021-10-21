@@ -1,8 +1,5 @@
 //
-//  PaneApp.swift
-//  Pane
-//
-//  Created by An Tran on 17/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import SwiftUI

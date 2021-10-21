@@ -79,34 +79,34 @@ public struct PhotoView: View {
                     option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
                     binding: InputBinding($viewModel.selectedResizingOption)
                 ),
-
+                
                 InputBlade(
                     name: "Aspect Ratio",
                     option: .options(PhotoViewModel.Constants.aspectRatioOptions, style: .segmented),
                     binding: InputBinding($viewModel.selectedAspectRatioOption)
                 ),
-
+                
                 InputBlade(
                     name: "Clipped",
                     binding: InputBinding($viewModel.clipped)
                 ),
-
+                
                 InputBlade(
                     name: "Border Color",
                     binding: InputBinding($viewModel.borderColor)
                 ),
-
+                
                 InputBlade(
                     name: "Border Width",
-                    option: .stepperDouble(range: 2...10),
+                    option: .stepperDouble(range: 2 ... 10),
                     binding: InputBinding($viewModel.borderWidth)
                 ),
-
+                
                 InputBlade(
                     name: "Rotation",
-                    option: .slider(range: -180...180),
+                    option: .slider(range: -180 ... 180),
                     binding: InputBinding($viewModel.rotation)
-                )
+                ),
             ]).render()
         }
     }

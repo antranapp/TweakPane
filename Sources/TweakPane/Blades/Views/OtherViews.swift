@@ -1,8 +1,5 @@
 //
-//  File.swift
-//  
-//
-//  Created by Binh An Tran on 21/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -45,4 +42,3 @@ struct SliderView<Value>: View where Value: BinaryFloatingPoint, Value.Stride: B
         }
     }
 }
-

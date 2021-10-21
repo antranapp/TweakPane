@@ -1,8 +1,5 @@
 //
-//  TextView.swift
-//  Pane
-//
-//  Created by Binh An Tran on 19/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation

@@ -1,8 +1,5 @@
 //
-//  Parameter.swift
-//  Pane
-//
-//  Created by An Tran on 18/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -12,10 +9,10 @@ public protocol Parameter {
     var asParameter: Parameter { get set }
 }
 
-extension Parameter {
-    public var asParameter: Parameter {
-        get {self as Parameter}
-        set {self = newValue as! Self}
+public extension Parameter {
+    var asParameter: Parameter {
+        get { self as Parameter }
+        set { self = newValue as! Self }
     }
 }
 

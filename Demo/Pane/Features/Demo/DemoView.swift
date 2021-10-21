@@ -1,6 +1,10 @@
-import SwiftUI
+//
+// Copyright © 2021 An Tran. All rights reserved.
+//
+
 import BottomSheet
 import Combine
+import SwiftUI
 import TweakPane
 
 struct DemoView: View {
@@ -12,7 +16,7 @@ struct DemoView: View {
     @State var selectedSegmentValue: String = "Value 1"
     private let segmentValues = ["Value 1", "Value 2", "Value 3"]
 
-    @State var dateValue: Date = Date()
+    @State var dateValue = Date()
 
     @State var intStepperValue: Int = 0
     @State var doubleSliderValue: Double = 0
@@ -23,7 +27,7 @@ struct DemoView: View {
                 Section(header: Text("Double Slider Value")) {
                     SliderView(
                         name: "Double Stepper Value",
-                        range: 0...10,
+                        range: 0 ... 10,
                         sliderValue: $doubleSliderValue
                     )
                     Text(String(describing: doubleSliderValue))
@@ -32,7 +36,7 @@ struct DemoView: View {
                 Section(header: Text("Int Stepper Value")) {
                     StepperView(
                         name: "Int Stepper Value",
-                        range: 0...10,
+                        range: 0 ... 10,
                         stepValue: $intStepperValue
                     )
                     Text(String(describing: intStepperValue))
@@ -79,17 +83,17 @@ struct DemoView: View {
                     Pane([
                         InputBlade(
                             name: "Double Stepper Input",
-                            option: .slider(range: 0...10),
+                            option: .slider(range: 0 ... 10),
                             binding: InputBinding($doubleSliderValue)
                         ),
                         InputBlade(
                             name: "Int Stepper Input",
-                            option: .stepperInt(range: 0...10),
+                            option: .stepperInt(range: 0 ... 10),
                             binding: InputBinding($intStepperValue)
                         ),
                         InputBlade(
                             name: "Double Stepper Input",
-                            option: .stepperDouble(range: 0...10),
+                            option: .stepperDouble(range: 0 ... 10),
                             binding: InputBinding($intStepperValue)
                         ),
                         InputBlade(
