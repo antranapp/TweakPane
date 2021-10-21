@@ -39,7 +39,7 @@ public struct PhotoView: View {
                         $0.aspectRatio(contentMode: viewModel.aspectRatio!)
                     }
                     .frame(width: 300, height: 300)
-                    .border(viewModel.borderColor, width: 3)
+                    .border(viewModel.borderColor, width: viewModel.borderWidth)
                     .if(viewModel.clipped) {
                         $0.clipped()
                     }
@@ -93,6 +93,12 @@ public struct PhotoView: View {
                 InputBlade(
                     name: "Border Color",
                     binding: InputBinding($viewModel.borderColor)
+                ),
+
+                InputBlade(
+                    name: "Border Width",
+                    option: .slider(range: 2...10),
+                    binding: InputBinding($viewModel.borderWidth)
                 )
             ]).render()
         }

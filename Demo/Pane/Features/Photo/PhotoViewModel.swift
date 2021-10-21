@@ -30,6 +30,7 @@ final class PhotoViewModel: ObservableObject {
     @Published var clipped: Bool = false
 
     @Published var borderColor: Color = .red
+    @Published var borderWidth: Double = 4
 
     @Published var selectedSourceIndex = 0
     @Published var imageURLString: String = ""
