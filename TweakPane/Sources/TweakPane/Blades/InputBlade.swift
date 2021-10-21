@@ -14,7 +14,7 @@ public enum InputBladeOption {
         case menu
     }
 
-    case none
+    case `default`
     case options(_ options: [String], style: Style)
     case stepper(range: ClosedRange<Int>)
     case slider(range: ClosedRange<Double>)
@@ -27,7 +27,7 @@ public struct InputBlade: Blade {
 
     public init(
         name: String,
-        option: InputBladeOption,
+        option: InputBladeOption = .default,
         binding: InputBinding
     ) {
         self.name = name
@@ -38,7 +38,7 @@ public struct InputBlade: Blade {
     @ViewBuilder
     private func renderInternally() -> some View {
         switch option {
-        case .none:
+        case .default:
             if binding.parameter is Bool {
                 ToogleView(
                     name: name,
@@ -121,7 +121,7 @@ public struct InputBlade: Blade {
             )
         }
 
-        Text(String(describing: binding.parameter))
+//        Text(String(describing: binding.parameter))
     }
 
     // TODO: Instead of AnyView, we might want to create a AnyBlade

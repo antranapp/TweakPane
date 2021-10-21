@@ -89,7 +89,6 @@ struct DemoView: View {
                         ),
                         InputBlade(
                             name: "Date Input",
-                            option: .none,
                             binding: InputBinding($dateValue)
                         ),
                         InputBlade(
@@ -99,7 +98,6 @@ struct DemoView: View {
                         ),
                         InputBlade(
                             name: "Text Input",
-                            option: .none,
                             binding: InputBinding($textValue)
                         ),
                         MonitoringBlade(
@@ -108,7 +106,6 @@ struct DemoView: View {
                         ),
                         InputBlade(
                             name: "Bool Input",
-                            option: .none,
                             binding: InputBinding($boolValue)
                         ),
                     ]).render()

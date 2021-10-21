@@ -14,12 +14,12 @@ struct ContentView: View {
             PhotoView()
                 .tabItem {
                     Image(systemName: "1.circle.fill")
-                    Text("🍌🍌")
+                    Text("Photo")
                 }
             DemoView()
                 .tabItem {
                     Image(systemName: "2.square.fill")
-                    Text("🍏🍏")
+                    Text("Demo")
                 }
 
         }

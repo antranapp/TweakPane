@@ -78,6 +78,15 @@ public struct PhotoView: View {
                     option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
                     binding: InputBinding($viewModel.selectedResizingOption)
                 ),
+                InputBlade(
+                    name: "Aspect Ratio",
+                    option: .options(PhotoViewModel.Constants.aspectRatioOptions, style: .segmented),
+                    binding: InputBinding($viewModel.selectedAspectRatioOption)
+                ),
+                InputBlade(
+                    name: "Clipped",
+                    binding: InputBinding($viewModel.clipped)
+                )
             ]).render()
         }
     }

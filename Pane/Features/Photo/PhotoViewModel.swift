@@ -16,6 +16,7 @@ final class PhotoViewModel: ObservableObject {
 
     enum Constants {
         static let resizingOptions = ["No", "Stretch", "Tile"]
+        static let aspectRatioOptions = ["No", "Fit", "Fill"]
     }
 
     @Published private(set) var state: State = .intializing
@@ -23,10 +24,9 @@ final class PhotoViewModel: ObservableObject {
     @Published var selectedResizingOption = "No"
     @Published var resizingMode: Image.ResizingMode? = nil
 
-    @Published var selectedAspectRatioIndex = 2
+    @Published var selectedAspectRatioOption = "Fit"
     @Published var aspectRatio: ContentMode? = nil
 
-    @Published var selectedClippedIndex = 1
     @Published var clipped: Bool = false
 
     @Published var selectedSourceIndex = 0
@@ -52,15 +52,9 @@ final class PhotoViewModel: ObservableObject {
             }
             .store(in: &cancellables)
 
-        $selectedAspectRatioIndex
+        $selectedAspectRatioOption
             .sink { [weak self] value in
                 self?.updateAspectRatio(with: value)
-            }
-            .store(in: &cancellables)
-
-        $selectedClippedIndex
-            .sink { [weak self] value in
-                self?.updateClippingMode(with: value)
             }
             .store(in: &cancellables)
     }
@@ -75,21 +69,13 @@ final class PhotoViewModel: ObservableObject {
         }
     }
 
-    private func updateAspectRatio(with index: Int) {
-        if index == 1 {
+    private func updateAspectRatio(with option: String) {
+        if option == "Fit" {
             aspectRatio = .fit
-        } else if index == 2 {
+        } else if option == "Fill" {
             aspectRatio = .fill
         } else {
             aspectRatio = nil
-        }
-    }
-
-    private func updateClippingMode(with index: Int) {
-        if index == 0 {
-            clipped = false
-        } else if index == 1 {
-            clipped = true
         }
     }
 
