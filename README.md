@@ -18,6 +18,12 @@ With this binding in place, any change of the original properties will be reflec
 
 TweakPane provides a set of standard `Views` to manipulate different types of values such as String, Number, Color etc... Via Binding, any change user mades in control panel will be assigned back to the original properties which can be used to manipulate the original UI.
 
+## Demo
+
+
+https://user-images.githubusercontent.com/478757/138223296-23dcfdad-8e17-4589-b6a0-d23d5fde844c.mp4
+
+
 ## Usage
 
 This is the simplest functional example of TweakPane:
