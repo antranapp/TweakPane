@@ -14,14 +14,13 @@ struct PaneView: View {
     }
 
     var body: some View {
-        Form {
+        VStack(spacing: 20) {
             // TODO: Find a way so that we can get rid of interating over indices
             ForEach(blades.indices, id: \.self) { index in
-                Section(header: Text(blades[index].name)) {
+                Section(title: blades[index].name) {
                     VStack {
                         blades[index].render()
                     }
-
                 }
             }
         }

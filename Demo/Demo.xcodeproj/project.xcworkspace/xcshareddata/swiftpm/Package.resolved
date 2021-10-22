@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AnPhotosPicker",
+        "repositoryURL": "https://github.com/antranapp/AnPhotosPicker",
+        "state": {
+          "branch": "master",
+          "revision": "1d6f3c7a345a72e169a71da43c24fe326bd205fe",
+          "version": null
+        }
+      },
+      {
+        "package": "BottomSheet",
+        "repositoryURL": "https://github.com/danielsaidi/BottomSheet",
+        "state": {
+          "branch": null,
+          "revision": "940d2ebde76d6546931d455ae9dc267b704fb4b9",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
