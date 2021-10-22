@@ -73,41 +73,45 @@ public struct PhotoView: View {
             minHeight: .points(120),
             maxHeight: .percentage(0.5)
         ) {
-            Pane([
-                InputBlade(
-                    name: "Resizing",
-                    option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
-                    binding: InputBinding($viewModel.selectedResizingOption)
-                ),
-                
-                InputBlade(
-                    name: "Aspect Ratio",
-                    option: .options(PhotoViewModel.Constants.aspectRatioOptions, style: .segmented),
-                    binding: InputBinding($viewModel.selectedAspectRatioOption)
-                ),
-                
-                InputBlade(
-                    name: "Clipped",
-                    binding: InputBinding($viewModel.clipped)
-                ),
-                
-                InputBlade(
-                    name: "Border Color",
-                    binding: InputBinding($viewModel.borderColor)
-                ),
-                
-                InputBlade(
-                    name: "Border Width",
-                    option: .stepperDouble(range: 2 ... 10),
-                    binding: InputBinding($viewModel.borderWidth)
-                ),
-                
-                InputBlade(
-                    name: "Rotation",
-                    option: .slider(range: -180 ... 180),
-                    binding: InputBinding($viewModel.rotation)
-                ),
-            ]).render()
+            ScrollView {
+                Pane([
+                    InputBlade(
+                        name: "Resizing",
+                        option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
+                        binding: InputBinding($viewModel.selectedResizingOption)
+                    ),
+
+                    InputBlade(
+                        name: "Aspect Ratio",
+                        option: .options(PhotoViewModel.Constants.aspectRatioOptions, style: .segmented),
+                        binding: InputBinding($viewModel.selectedAspectRatioOption)
+                    ),
+
+                    InputBlade(
+                        name: "Clipped",
+                        binding: InputBinding($viewModel.clipped)
+                    ),
+
+                    InputBlade(
+                        name: "Border Color",
+                        binding: InputBinding($viewModel.borderColor)
+                    ),
+
+                    InputBlade(
+                        name: "Border Width",
+                        option: .stepperDouble(range: 2 ... 10),
+                        binding: InputBinding($viewModel.borderWidth)
+                    ),
+
+                    InputBlade(
+                        name: "Rotation",
+                        option: .slider(range: -180 ... 180),
+                        binding: InputBinding($viewModel.rotation)
+                    ),
+                ]).render()
+                .padding(.horizontal)
+                .padding(.bottom, 100)
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ struct DemoView: View {
     @State var dateValue = Date()
 
     @State var intStepperValue: Int = 0
+    @State var doubleStepperValue: Double = 0
     @State var doubleSliderValue: Double = 0
 
     var body: some View {
@@ -31,6 +32,15 @@ struct DemoView: View {
                         sliderValue: $doubleSliderValue
                     )
                     Text(String(describing: doubleSliderValue))
+                }
+
+                Section(header: Text("Double Stepper Value")) {
+                    StepperView(
+                        name: "Double Stepper Value",
+                        range: 0 ... 10,
+                        stepValue: $doubleStepperValue
+                    )
+                    Text(String(describing: doubleStepperValue))
                 }
 
                 Section(header: Text("Int Stepper Value")) {
@@ -80,44 +90,49 @@ struct DemoView: View {
                 maxHeight: .points(500),
                 style: .standard,
                 content: {
-                    Pane([
-                        InputBlade(
-                            name: "Double Stepper Input",
-                            option: .slider(range: 0 ... 10),
-                            binding: InputBinding($doubleSliderValue)
-                        ),
-                        InputBlade(
-                            name: "Int Stepper Input",
-                            option: .stepperInt(range: 0 ... 10),
-                            binding: InputBinding($intStepperValue)
-                        ),
-                        InputBlade(
-                            name: "Double Stepper Input",
-                            option: .stepperDouble(range: 0 ... 10),
-                            binding: InputBinding($intStepperValue)
-                        ),
-                        InputBlade(
-                            name: "Date Input",
-                            binding: InputBinding($dateValue)
-                        ),
-                        InputBlade(
-                            name: "Picker Input",
-                            option: .options(segmentValues, style: .segmented),
-                            binding: InputBinding($selectedSegmentValue)
-                        ),
-                        InputBlade(
-                            name: "Text Input",
-                            binding: InputBinding($textValue)
-                        ),
-                        MonitoringBlade(
-                            name: "Text Monitor",
-                            binding: MonitorBinding($textValue)
-                        ),
-                        InputBlade(
-                            name: "Bool Input",
-                            binding: InputBinding($boolValue)
-                        ),
-                    ]).render()
+                    ScrollView {
+                        Pane([
+                            InputBlade(
+                                name: "Double Slider Input",
+                                option: .slider(range: 0 ... 10),
+                                binding: InputBinding($doubleSliderValue)
+                            ),
+                            InputBlade(
+                                name: "Int Stepper Input",
+                                option: .stepperInt(range: 0 ... 10),
+                                binding: InputBinding($intStepperValue)
+                            ),
+                            InputBlade(
+                                name: "Double Stepper Input",
+                                option: .stepperDouble(range: 0 ... 10),
+                                binding: InputBinding($doubleStepperValue)
+                            ),
+                            InputBlade(
+                                name: "Date Input",
+                                binding: InputBinding($dateValue)
+                            ),
+                            InputBlade(
+                                name: "Picker Input",
+                                option: .options(segmentValues, style: .segmented),
+                                binding: InputBinding($selectedSegmentValue)
+                            ),
+                            InputBlade(
+                                name: "Text Input",
+                                binding: InputBinding($textValue)
+                            ),
+                            MonitoringBlade(
+                                name: "Text Monitor",
+                                binding: MonitorBinding($textValue)
+                            ),
+                            InputBlade(
+                                name: "Bool Input",
+                                binding: InputBinding($boolValue)
+                            ),
+                        ]).render()
+                            .padding(.horizontal)
+                            .padding(.bottom, 100)
+
+                    }
                 }
             )
         )
