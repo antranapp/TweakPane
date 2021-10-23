@@ -10,17 +10,33 @@ public protocol Blade {
     func render() -> AnyView
 }
 
-public protocol BladeContainer: Blade {
-    var blades: [Blade] { get }
-}
+public struct FolderBlade: Blade {
+    public var name: String
 
-extension BladeContainer {
-    @ViewBuilder
-    private func renderInternally() -> some View {
-        Text("Render")
+    let blades: [Blade]
+
+    public init(_ name: String, blades: [Blade]) {
+        self.name = name
+        self.blades = blades
     }
 
-    func render() -> AnyView {
+    @ViewBuilder
+    private func renderInternally() -> some View {
+        VStack(spacing: 20) {
+            // TODO: Find a way so that we can get rid of interating over indices
+            ForEach(blades.indices, id: \.self) { index in
+                Section(title: blades[index].name) {
+                    VStack {
+                        blades[index].render()
+                    }
+                }
+            }
+        }
+        .padding(.leading, 20)
+    }
+
+    public func render() -> AnyView {
         AnyView(renderInternally())
     }
 }
+
