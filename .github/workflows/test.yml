@@ -1,0 +1,35 @@
+name: Test PR
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Build and Test
+
+    # See available software: https://github.com/actions/virtual-environments/blob/master/images/macos/macos-11-Readme.md
+    runs-on: macos-11
+
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/checkout@v2
+      - name: Prepare Xcode
+        run: |
+          sudo xcode-select --switch /Applications/Xcode_13.0.app
+          xcodebuild -version
+          swift --version
+
+      - name: Build for testing
+        run: xcodebuild build-for-testing -workspace TweakPane.xcworkspace -scheme "Pane" -destination "name=iPhone 13 Pro"
+
+      - name: Boot simulator # Doing this as a separate step for some reason considerably speeds up tests
+        run: xcrun simctl boot "iPhone 13 Pro"
+
+      - name: Run tests
+        run: xcodebuild test-without-building -workspace TweakPane.xcworkspace -scheme "Pane" -destination "name=iPhone 13 Pro"
