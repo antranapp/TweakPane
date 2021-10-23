@@ -32,8 +32,11 @@ final class PhotoViewModel: ObservableObject {
     @Published var borderColor: Color = .red
     @Published var borderWidth: Double = 4
 
-    @Published var rotation: Double = 0
-
+    @Published var rotationAngle: Double = 0
+    @Published var rotationX: Double = 0
+    @Published var rotationY: Double = 0
+    @Published var rotationZ: Double = 0
+    
     @Published var selectedSourceIndex = 0
     @Published var imageURLString: String = ""
     @Published var isLoading: Bool = false

@@ -38,7 +38,10 @@ public struct PhotoView: View {
                     .if(viewModel.aspectRatio != nil) {
                         $0.aspectRatio(contentMode: viewModel.aspectRatio!)
                     }
-                    .rotationEffect(.degrees(viewModel.rotation))
+                    .rotationEffect(.degrees(viewModel.rotationAngle))
+                    .rotation3DEffect(.degrees(viewModel.rotationX), axis: (x: 1, y: 0, z: 0))
+                    .rotation3DEffect(.degrees(viewModel.rotationY), axis: (x: 0, y: 1, z: 0))
+                    .rotation3DEffect(.degrees(viewModel.rotationZ), axis: (x: 0, y: 0, z: 1), anchorZ: 0.5)
                     .frame(width: 300, height: 300)
                     .border(viewModel.borderColor, width: viewModel.borderWidth)
                     .if(viewModel.clipped) {
@@ -75,22 +78,6 @@ public struct PhotoView: View {
         ) {
             ScrollView {
                 Pane([
-                    FolderBlade(
-                        "3D",
-                        blades: [
-                            InputBlade(
-                                name: "Resizing",
-                                option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
-                                binding: InputBinding($viewModel.selectedResizingOption)
-                            ),
-
-                            InputBlade(
-                                name: "Aspect Ratio",
-                                option: .options(PhotoViewModel.Constants.aspectRatioOptions, style: .segmented),
-                                binding: InputBinding($viewModel.selectedAspectRatioOption)
-                            ),
-                        ]
-                    ),
                     InputBlade(
                         name: "Resizing",
                         option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
@@ -122,7 +109,29 @@ public struct PhotoView: View {
                     InputBlade(
                         name: "Rotation",
                         option: .slider(range: -180 ... 180),
-                        binding: InputBinding($viewModel.rotation)
+                        binding: InputBinding($viewModel.rotationAngle)
+                    ),
+                    FolderBlade(
+                        "3D",
+                        blades: [
+                            InputBlade(
+                                name: "Rotation X",
+                                option: .slider(range: -180 ... 180),
+                                binding: InputBinding($viewModel.rotationX)
+                            ),
+
+                            InputBlade(
+                                name: "Rotation Y",
+                                option: .slider(range: -180 ... 180),
+                                binding: InputBinding($viewModel.rotationY)
+                            ),
+
+                            InputBlade(
+                                name: "Rotation Z",
+                                option: .slider(range: -180 ... 180),
+                                binding: InputBinding($viewModel.rotationZ)
+                            ),
+                        ]
                     ),
                 ]).render()
                 .padding(.horizontal)
