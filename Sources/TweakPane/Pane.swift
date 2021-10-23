@@ -8,14 +8,23 @@ import SwiftUI
 
 // Pane -> Blade -> Binding/Monitoring
 
-public final class Pane {
-    private var blades: [Blade]
+final class PaneSettings: ObservableObject {
+    static let shared = PaneSettings()
+
+    @Published var showValue: Bool = false
+
+    private init() {}
+}
+
+public struct Pane: View {
+    @StateObject private var settings = PaneSettings.shared
+    public var blades: [Blade]
 
     public init(_ blades: [Blade]) {
         self.blades = blades
     }
 
-    public func render() -> some View {
-        PaneView(blades)
+    public var body: some View {
+        PaneView(blades: blades)
     }
 }

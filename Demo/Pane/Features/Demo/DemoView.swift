@@ -128,9 +128,9 @@ struct DemoView: View {
                                 name: "Bool Input",
                                 binding: InputBinding($boolValue)
                             ),
-                        ]).render()
-                            .padding(.horizontal)
-                            .padding(.bottom, 100)
+                        ])
+                        .padding(.horizontal)
+                        .padding(.bottom, 100)
 
                     }
                 }
@@ -139,7 +139,7 @@ struct DemoView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DemoView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
