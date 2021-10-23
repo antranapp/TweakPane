@@ -17,7 +17,7 @@ struct SimpleView: View {
             Text(text)
             Pane([
                 InputBlade(name: "Text", binding: InputBinding($text))
-            ]).render()
+            ])
         }
     }
 }

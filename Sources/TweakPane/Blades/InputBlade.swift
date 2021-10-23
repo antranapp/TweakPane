@@ -97,7 +97,9 @@ public struct InputBlade: Blade {
                 )
             }
 
-            Text(String(describing: binding.parameter))
+            if PaneSettings.shared.showValue {
+                Text(String(describing: binding.parameter))
+            }
         }
     }
 

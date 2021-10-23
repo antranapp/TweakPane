@@ -9,10 +9,6 @@ struct PaneView: View {
 
     let blades: [Blade]
 
-    init(_ blades: [Blade]) {
-        self.blades = blades
-    }
-
     var body: some View {
         VStack(spacing: 20) {
             // TODO: Find a way so that we can get rid of interating over indices

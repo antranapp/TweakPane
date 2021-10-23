@@ -18,6 +18,15 @@
           "revision": "940d2ebde76d6546931d455ae9dc267b704fb4b9",
           "version": "0.1.0"
         }
+      },
+      {
+        "package": "PagerTabStripView",
+        "repositoryURL": "https://github.com/xmartlabs/PagerTabStripView.git",
+        "state": {
+          "branch": null,
+          "revision": "582aa625a2e824930a6806d60ed6e9f999ee318c",
+          "version": "3.0.0"
+        }
       }
     ]
   },

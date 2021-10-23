@@ -8,7 +8,8 @@ import SwiftUI
 struct PaneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            PerfectBrandView()
         }
     }
 }

@@ -12,8 +12,14 @@
 		7F7B9AA0271BF3FC00522C99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7B9A9F271BF3FC00522C99 /* Assets.xcassets */; };
 		7F7B9AA3271BF3FC00522C99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7B9AA2271BF3FC00522C99 /* Preview Assets.xcassets */; };
 		7F7B9AAB271BF98100522C99 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 7F7B9AAA271BF98100522C99 /* BottomSheet */; };
+		D703C4772724FBD7005A1942 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703C4762724FBD7005A1942 /* CanvasView.swift */; };
+		D703C4792724FCFC005A1942 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703C4782724FCFC005A1942 /* Configuration.swift */; };
+		D703C47C2724FDB4005A1942 /* Color+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703C47B2724FDB4005A1942 /* Color+Codable.swift */; };
 		D70E82E9272107BA008F7130 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70E82E8272107BA008F7130 /* StepperView.swift */; };
 		D70E82EC272120CB008F7130 /* SimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70E82EB272120CB008F7130 /* SimpleView.swift */; };
+		D726FC862724C27C00D5089E /* PerfectBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D726FC852724C27C00D5089E /* PerfectBrandView.swift */; };
+		D726FC882724C29F00D5089E /* PerfectBrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D726FC872724C29F00D5089E /* PerfectBrandViewModel.swift */; };
+		D726FC8B2724C78A00D5089E /* PagerTabStripView in Frameworks */ = {isa = PBXBuildFile; productRef = D726FC8A2724C78A00D5089E /* PagerTabStripView */; };
 		D78283D22720C46B00CC059C /* TweakPane in Frameworks */ = {isa = PBXBuildFile; productRef = D78283D12720C46B00CC059C /* TweakPane */; };
 		D78283DC2720CA4300CC059C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283DB2720CA4300CC059C /* PhotoView.swift */; };
 		D78283DF2720CAFA00CC059C /* AnPhotosPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D78283DE2720CAFA00CC059C /* AnPhotosPicker */; };
@@ -32,8 +38,13 @@
 		7F7B9A9D271BF3FA00522C99 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		7F7B9A9F271BF3FC00522C99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F7B9AA2271BF3FC00522C99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D703C4762724FBD7005A1942 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		D703C4782724FCFC005A1942 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D703C47B2724FDB4005A1942 /* Color+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Codable.swift"; sourceTree = "<group>"; };
 		D70E82E8272107BA008F7130 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		D70E82EB272120CB008F7130 /* SimpleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleView.swift; sourceTree = "<group>"; };
+		D726FC852724C27C00D5089E /* PerfectBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectBrandView.swift; sourceTree = "<group>"; };
+		D726FC872724C29F00D5089E /* PerfectBrandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectBrandViewModel.swift; sourceTree = "<group>"; };
 		D78283DB2720CA4300CC059C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		D78283E02720CB6200CC059C /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		D78283E32720CC9C00CC059C /* View+Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Conditions.swift"; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D726FC8B2724C78A00D5089E /* PagerTabStripView in Frameworks */,
 				7F7B9AAB271BF98100522C99 /* BottomSheet in Frameworks */,
 				D78283D22720C46B00CC059C /* TweakPane in Frameworks */,
 				D78283DF2720CAFA00CC059C /* AnPhotosPicker in Frameworks */,
@@ -108,12 +120,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D703C47A2724FDA2005A1942 /* Exntensions */ = {
+			isa = PBXGroup;
+			children = (
+				D703C47B2724FDB4005A1942 /* Color+Codable.swift */,
+			);
+			path = Exntensions;
+			sourceTree = "<group>";
+		};
 		D70E82EA272120CB008F7130 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
 				D70E82EB272120CB008F7130 /* SimpleView.swift */,
 			);
 			path = Simple;
+			sourceTree = "<group>";
+		};
+		D726FC842724C25900D5089E /* PerfectBrand */ = {
+			isa = PBXGroup;
+			children = (
+				D703C47A2724FDA2005A1942 /* Exntensions */,
+				D726FC852724C27C00D5089E /* PerfectBrandView.swift */,
+				D726FC872724C29F00D5089E /* PerfectBrandViewModel.swift */,
+				D703C4762724FBD7005A1942 /* CanvasView.swift */,
+				D703C4782724FCFC005A1942 /* Configuration.swift */,
+			);
+			path = PerfectBrand;
 			sourceTree = "<group>";
 		};
 		D78283D02720C46B00CC059C /* Frameworks */ = {
@@ -143,6 +175,7 @@
 		D78283F22720F6BB00CC059C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				D726FC842724C25900D5089E /* PerfectBrand */,
 				D70E82EA272120CB008F7130 /* Simple */,
 				D78283F42720F6CC00CC059C /* Photo */,
 				D78283F32720F6C000CC059C /* Demo */,
@@ -187,6 +220,7 @@
 				7F7B9AAA271BF98100522C99 /* BottomSheet */,
 				D78283D12720C46B00CC059C /* TweakPane */,
 				D78283DE2720CAFA00CC059C /* AnPhotosPicker */,
+				D726FC8A2724C78A00D5089E /* PagerTabStripView */,
 			);
 			productName = Pane;
 			productReference = 7F7B9A98271BF3FA00522C99 /* Demo.app */;
@@ -219,6 +253,7 @@
 			packageReferences = (
 				7F7B9AA9271BF98100522C99 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 				D78283DD2720CAFA00CC059C /* XCRemoteSwiftPackageReference "AnPhotosPicker" */,
+				D726FC892724C78A00D5089E /* XCRemoteSwiftPackageReference "PagerTabStripView" */,
 			);
 			productRefGroup = 7F7B9A99271BF3FA00522C99 /* Products */;
 			projectDirPath = "";
@@ -248,13 +283,18 @@
 			files = (
 				D78283DC2720CA4300CC059C /* PhotoView.swift in Sources */,
 				D70E82E9272107BA008F7130 /* StepperView.swift in Sources */,
+				D703C47C2724FDB4005A1942 /* Color+Codable.swift in Sources */,
+				D703C4772724FBD7005A1942 /* CanvasView.swift in Sources */,
 				D78283F02720D88700CC059C /* TextView.swift in Sources */,
 				7F7B9A9E271BF3FA00522C99 /* DemoView.swift in Sources */,
 				D70E82EC272120CB008F7130 /* SimpleView.swift in Sources */,
+				D703C4792724FCFC005A1942 /* Configuration.swift in Sources */,
 				D78283E12720CB6200CC059C /* PhotoViewModel.swift in Sources */,
+				D726FC882724C29F00D5089E /* PerfectBrandViewModel.swift in Sources */,
 				D78283ED2720D88700CC059C /* OtherViews.swift in Sources */,
 				D78283E62720D0BE00CC059C /* ContentView.swift in Sources */,
 				D78283EE2720D88700CC059C /* ColorPickerView.swift in Sources */,
+				D726FC862724C27C00D5089E /* PerfectBrandView.swift in Sources */,
 				D78283EF2720D88700CC059C /* DatePickerView.swift in Sources */,
 				D78283E42720CC9C00CC059C /* View+Conditions.swift in Sources */,
 				7F7B9A9C271BF3FA00522C99 /* PaneApp.swift in Sources */,
@@ -472,6 +512,14 @@
 				minimumVersion = 0.1.0;
 			};
 		};
+		D726FC892724C78A00D5089E /* XCRemoteSwiftPackageReference "PagerTabStripView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xmartlabs/PagerTabStripView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		D78283DD2720CAFA00CC059C /* XCRemoteSwiftPackageReference "AnPhotosPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/antranapp/AnPhotosPicker";
@@ -487,6 +535,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F7B9AA9271BF98100522C99 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
+		};
+		D726FC8A2724C78A00D5089E /* PagerTabStripView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D726FC892724C78A00D5089E /* XCRemoteSwiftPackageReference "PagerTabStripView" */;
+			productName = PagerTabStripView;
 		};
 		D78283D12720C46B00CC059C /* TweakPane */ = {
 			isa = XCSwiftPackageProductDependency;

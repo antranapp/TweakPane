@@ -133,7 +133,7 @@ public struct PhotoView: View {
                             ),
                         ]
                     ),
-                ]).render()
+                ])
                 .padding(.horizontal)
                 .padding(.bottom, 100)
             }
