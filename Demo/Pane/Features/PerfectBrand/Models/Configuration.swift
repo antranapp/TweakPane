@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Configuration: Codable, Hashable {
+    var padding: Double
     var border: Border
     var perspective: Perspective
 }
@@ -43,6 +44,7 @@ extension Perspective {
 
 extension Configuration {
     static let `default` = Configuration(
+        padding: 0,
         border: .default,
         perspective: .default
     )
