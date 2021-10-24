@@ -12,6 +12,7 @@ struct Configuration: Codable, Hashable {
     var padding: Double
     var border: Border
     var perspective: Perspective
+    var background: Background
 }
 
 struct Border: Codable, Hashable {
@@ -46,6 +47,7 @@ extension Configuration {
     static let `default` = Configuration(
         padding: 0,
         border: .default,
-        perspective: .default
+        perspective: .default,
+        background: .default
     )
 }

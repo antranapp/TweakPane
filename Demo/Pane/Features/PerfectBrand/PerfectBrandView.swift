@@ -28,16 +28,15 @@ public struct PerfectBrandView: View {
             case .error(let error):
                 Text(error.localizedDescription)
             case .hasData(let image):
-                VStack(spacing: 0) {
-//                    Rectangle()
-//                        .fill(Color.black)
-//                        .edgesIgnoringSafeArea(.all)
+                ZStack {
+                    Rectangle()
+                        .fill(Color.black)
 
-                    canvasView(image)
+                    VStack(spacing: 0) {
+                        canvasView(image)
 
-                    Spacer()
+                        Spacer()
 
-                    VStack {
                         PagerTabStripView() {
                             colorPane
                                 .pagerTabItem {
@@ -47,10 +46,15 @@ public struct PerfectBrandView: View {
                                 .pagerTabItem {
                                     TitleNavBarItem(title: "Perspective")
                                 }
+                            backgroundPane
+                                .pagerTabItem {
+                                    TitleNavBarItem(title: "Background")
+                                }
+
                         }
+                        .background(Color.white)
                         .padding(.bottom, 20)
                     }
-                    .background(Color.white)
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 .navigationBarTitle("", displayMode: .inline)
@@ -73,8 +77,8 @@ public struct PerfectBrandView: View {
                             }
                         )
                     }
+                }
             }
-        }
 
         }.sheet(isPresented: $isPresentingImagePicker) {
             AnPhotosPicker(
@@ -101,37 +105,38 @@ public struct PerfectBrandView: View {
                     width: proxy.size.width,
                     height: proxy.size.height
                 )
+                .clipped()
             }
         }
     }
 
     private var colorPane: some View {
         ScrollView {
-        Pane([
-            InputBlade(
-                name: "Inset Padding",
-                option: .slider(range: 0...100),
-                binding: InputBinding($viewModel.configuration.padding)
-            ),
+            Pane([
+                InputBlade(
+                    name: "Inset Padding",
+                    option: .slider(range: 0...100),
+                    binding: InputBinding($viewModel.configuration.padding)
+                ),
 
-            InputBlade(
-                name: "Border Radius",
-                option: .slider(range: 0...20),
-                binding: InputBinding($viewModel.configuration.border.radius)
-            ),
+                InputBlade(
+                    name: "Border Radius",
+                    option: .slider(range: 0...20),
+                    binding: InputBinding($viewModel.configuration.border.radius)
+                ),
 
-            InputBlade(
-                name: "Border Width",
-                option: .slider(range: 0...20),
-                binding: InputBinding($viewModel.configuration.border.width)
-            ),
+                InputBlade(
+                    name: "Border Width",
+                    option: .slider(range: 0...20),
+                    binding: InputBinding($viewModel.configuration.border.width)
+                ),
 
-            InputBlade(
-                name: "Border Color",
-                binding: InputBinding($viewModel.configuration.border.color)
-            ),
-        ])
-        .padding(20)
+                InputBlade(
+                    name: "Border Color",
+                    binding: InputBinding($viewModel.configuration.border.color)
+                ),
+            ])
+                .padding(20)
         }
     }
 
@@ -156,19 +161,36 @@ public struct PerfectBrandView: View {
                     binding: InputBinding($viewModel.configuration.perspective.rotationZ)
                 ),
             ])
-            .padding(20)
+                .padding(20)
         }
+    }
 
+    @ViewBuilder
+    private var backgroundPane: some View {
+        ScrollView {
+            switch viewModel.configuration.background.style {
+            case .solid(let color):
+                Pane([
+                    InputBlade(
+                        name: "Color",
+                        binding: InputBinding(
+                            Binding(
+                                get: {
+                                    color
+                                },
+                                set: { newValue in
+                                    viewModel.configuration.background.style = .solid(color: newValue)
+                                }
+                        ))
+                    ),
+                ])
+                .padding(20)
+            case .pattern(pattern: let pattern):
+                EmptyView()
+            }
+        }
     }
 }
-
-#if DEBUG
-struct PerfectBrandView_Previews: PreviewProvider {
-    static var previews: some View {
-        PerfectBrandView()
-    }
-}
-#endif
 
 struct TitleNavBarItem: View {
     let title: String

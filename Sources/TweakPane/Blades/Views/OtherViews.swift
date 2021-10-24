@@ -37,7 +37,6 @@ struct SliderView<Value>: View where Value: BinaryFloatingPoint, Value.Stride: B
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(name)
             Slider(value: $sliderValue, in: range)
         }
     }

@@ -13,7 +13,8 @@ struct CanvasView: View {
     let configuration: Configuration
 
     var body: some View {
-        VStack { // This VStack helps to center the Canvas in the center
+        ZStack { // This VStack helps to center the Canvas in the center
+            BackgroundView(background: configuration.background)
             image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
