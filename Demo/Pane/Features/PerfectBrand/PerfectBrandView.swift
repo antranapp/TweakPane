@@ -48,6 +48,7 @@ public struct PerfectBrandView: View {
                                     TitleNavBarItem(title: "Perspective")
                                 }
                         }
+                        .padding(.bottom, 20)
                     }
                     .background(Color.white)
                 }
@@ -55,15 +56,22 @@ public struct PerfectBrandView: View {
                 .navigationBarTitle("", displayMode: .inline)
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button("First") {
-                            print("Pressed")
-                        }
-
-                        Spacer()
-
-                        Button("Second") {
-                            print("Pressed")
-                        }
+                        Button(
+                            action: {
+                                print("Share")
+                            },
+                            label: {
+                                Image(systemName: "square.and.arrow.up")
+                            }
+                        )
+                        Button(
+                            action: {
+                                print("Load")
+                            },
+                            label: {
+                                Image(systemName: "plus")
+                            }
+                        )
                     }
             }
         }
@@ -89,10 +97,10 @@ public struct PerfectBrandView: View {
                     image: image,
                     configuration: viewModel.configuration
                 )
-                    .frame(
-                        width: proxy.size.width,
-                        height: proxy.size.height
-                    )
+                .frame(
+                    width: proxy.size.width,
+                    height: proxy.size.height
+                )
             }
         }
     }
@@ -100,6 +108,12 @@ public struct PerfectBrandView: View {
     private var colorPane: some View {
         ScrollView {
         Pane([
+            InputBlade(
+                name: "Inset Padding",
+                option: .slider(range: 0...100),
+                binding: InputBinding($viewModel.configuration.padding)
+            ),
+
             InputBlade(
                 name: "Border Radius",
                 option: .slider(range: 0...20),
