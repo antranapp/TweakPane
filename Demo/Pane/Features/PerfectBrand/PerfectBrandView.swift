@@ -161,33 +161,84 @@ public struct PerfectBrandView: View {
                     binding: InputBinding($viewModel.configuration.perspective.rotationZ)
                 ),
             ])
-                .padding(20)
+            .padding(20)
         }
     }
 
     @ViewBuilder
     private var backgroundPane: some View {
         ScrollView {
-            switch viewModel.configuration.background.style {
-            case .solid(let color):
-                Pane([
-                    InputBlade(
-                        name: "Color",
-                        binding: InputBinding(
-                            Binding(
-                                get: {
-                                    color
-                                },
-                                set: { newValue in
-                                    viewModel.configuration.background.style = .solid(color: newValue)
-                                }
-                        ))
+            Pane([
+                InputBlade(
+                    name: "Background",
+                    option: .optionsCustomViews(
+                        count: Background.Style.allCases.count,
+                        viewBuilder: { index in
+                            switch index {
+                            case 0:
+                                return AnyView(
+                                    Rectangle()
+                                        .fill(viewModel.configuration.background.color)
+                                        .frame(width: 50, height: 50)
+                                        .cornerRadius(13)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 13)
+                                                .stroke(Color.gray, lineWidth: 2)
+                                        )
+                                )
+                            case 1:
+                                return AnyView(
+                                    SquarePatternView(
+                                        size: 5,
+                                        color: viewModel.configuration.background.color
+                                    )
+                                    .frame(width: 50, height: 50)
+                                    .cornerRadius(13)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 13)
+                                            .stroke(Color.gray, lineWidth: 2)
+                                    )
+                                )
+                            default:
+                                assertionFailure("invalid index")
+                                return AnyView(EmptyView())
+                            }
+                        }
                     ),
-                ])
-                .padding(20)
-            case .pattern(pattern: let pattern):
-                EmptyView()
-            }
+                    binding: InputBinding(Binding<Int>(
+                        get: {
+                            switch viewModel.configuration.background.style {
+                            case .solid:
+                                return 0
+                            case .square:
+                                return 1
+                            }
+                        },
+                        set: { newValue in
+                            switch newValue {
+                            case 0:
+                                viewModel.configuration.background.style = .solid
+                            case 1:
+                                let size = viewModel.configuration.background.size
+                                viewModel.configuration.background = Background(
+                                    style: .square,
+                                    color: viewModel.configuration.background.color,
+                                    size: size == 0 ? 40 : size
+                                )
+
+                            default:
+                                assertionFailure("invalid index")
+                            }
+                        }
+                    ))
+                ),
+                InputBlade(
+                    name: "Size",
+                    option: .slider(range: 10...100),
+                    binding: InputBinding($viewModel.configuration.background.size)
+                )
+            ])
+            .padding(20)
         }
     }
 }

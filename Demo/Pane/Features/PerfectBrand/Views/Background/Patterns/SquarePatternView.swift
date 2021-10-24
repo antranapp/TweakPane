@@ -7,20 +7,31 @@ import UIKit
 
 struct SquarePatternView: View {
 
-    let pattern: Pattern
+    let size: Double
+    let color: Color
 
     var body: some View {
         GeometryReader { proxy in
-            let rows = Int(proxy.size.height / pattern.size)
-            let colums = Int(proxy.size.width / pattern.size)
-            let gridRows = Array(repeating: GridItem(spacing: 0), count: rows)
-            LazyHGrid(rows: gridRows, spacing: 0) {
-                ForEach(0 ..< rows * colums) { index in
-                    Rectangle()
-                        .fill(index % 2 == 0 ? Color(UIColor.lightGray) : Color.white)
-                        .frame(width: pattern.size)
+            let rows = Int(proxy.size.height / size) + 1
+            let columns = Int(proxy.size.width / size) + 1
+            VStack(spacing: 0) {
+                ForEach(Array(0..<rows), id: \.self) { row in
+                    HStack(spacing: 0) {
+                        ForEach(Array(0..<columns), id: \.self) { column in
+                            Rectangle()
+                                .fill((row + column) % 2 == 0 ? color : Color.white)
+                                .frame(width: size, height: size)
+                        }
+                    }
                 }
             }
+//            LazyHGrid(rows: gridRows, spacing: 0) {
+//                ForEach(Array(0 ..< rows * colums), id: \.self) { index in
+//                    Rectangle()
+//                        .fill(index % 2 == 0 ? color : Color.white)
+//                        .frame(width: size, height: size)
+//                }
+//            }
         }
     }
 }

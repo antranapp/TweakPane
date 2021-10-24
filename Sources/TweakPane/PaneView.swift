@@ -10,7 +10,7 @@ struct PaneView: View {
     let blades: [Blade]
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(alignment: .leading, spacing: 20) {
             // TODO: Find a way so that we can get rid of interating over indices
             ForEach(blades.indices, id: \.self) { index in
                 Section(title: blades[index].name) {

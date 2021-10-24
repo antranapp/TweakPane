@@ -12,12 +12,14 @@ struct BackgroundView: View {
     let background: Background
 
     var body: some View {
-        switch background.style {
-        case .solid(let color):
-            Rectangle()
-                .fill(color)
-        default:
-            EmptyView()
+        VStack {
+            switch background.style {
+            case .solid:
+                Rectangle()
+                    .fill(background.color)
+            case .square:
+                SquarePatternView(size: background.size, color: background.color)
+            }
         }
     }
 }

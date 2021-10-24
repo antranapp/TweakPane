@@ -13,6 +13,7 @@ public enum InputBladeOption {
 
     case `default`
     case options(_ options: [String], style: Style)
+    case optionsCustomViews(count: Int, viewBuilder: (Int) -> AnyView)
     case stepperInt(range: ClosedRange<Int>)
     case stepperDouble(range: ClosedRange<Double>)
     case slider(range: ClosedRange<Double>)
@@ -53,6 +54,22 @@ public struct InputBlade: Blade {
                         }
                     )
                 )
+
+            case let .optionsCustomViews(count, viewBuilder):
+                OptionsCustomView(
+                    name: name,
+                    count: count,
+                    viewBuilder: viewBuilder,
+                    selectedValue: Binding(
+                        get: {
+                            binding.parameter as! Int
+                        },
+                        set: { newValue in
+                            binding.parameter = newValue
+                        }
+                    )
+                )
+
 
             case .stepperInt(let range):
                 StepperView(
