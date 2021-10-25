@@ -5,23 +5,25 @@
 import Foundation
 import SwiftUI
 
-struct OptionsCustomView: View {
+struct OptionsCustomView<Content: View>: View {
 
     let name: String
     let count: Int
-    let viewBuilder: (Int) -> AnyView
+    @ViewBuilder let viewBuilder: (Int) -> Content
     @Binding var selectedValue: Int
 
     var body: some View {
-        HStack {
-            ForEach(Array(0..<count), id: \.self) { index in
-                viewBuilder(index)
-                    .onTapGesture {
-                        guard index != selectedValue else { return }
-                        selectedValue = index
-                    }
+        GeometryReader { proxy in
+            HStack {
+                ForEach(Array(0 ..< count), id: \.self) { index in
+                    viewBuilder(index)
+                        .frame(maxWidth: .infinity)
+                        .onTapGesture {
+                            guard index != selectedValue else { return }
+                            selectedValue = index
+                        }
+                }
             }
         }
-        .clipped()
     }
 }

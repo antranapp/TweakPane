@@ -13,6 +13,7 @@ public enum InputBladeOption {
 
     case `default`
     case options(_ options: [String], style: Style)
+    case optionsImage(_ options: [Image])
     case optionsCustomViews(count: Int, viewBuilder: (Int) -> AnyView)
     case stepperInt(range: ClosedRange<Int>)
     case stepperDouble(range: ClosedRange<Double>)
@@ -55,6 +56,20 @@ public struct InputBlade: Blade {
                     )
                 )
 
+            case .optionsImage(let options):
+                SegmentImageView(
+                    name: name,
+                    values: options,
+                    selectedValue: Binding(
+                        get: {
+                            binding.parameter as! Int
+                        },
+                        set: { newValue in
+                            binding.parameter = newValue
+                        }
+                    )
+                )
+
             case let .optionsCustomViews(count, viewBuilder):
                 OptionsCustomView(
                     name: name,
@@ -69,7 +84,6 @@ public struct InputBlade: Blade {
                         }
                     )
                 )
-
 
             case .stepperInt(let range):
                 StepperView(

@@ -15,9 +15,9 @@ struct SquarePatternView: View {
             let rows = Int(proxy.size.height / size) + 1
             let columns = Int(proxy.size.width / size) + 1
             VStack(spacing: 0) {
-                ForEach(Array(0..<rows), id: \.self) { row in
+                ForEach(Array(0 ..< rows), id: \.self) { row in
                     HStack(spacing: 0) {
-                        ForEach(Array(0..<columns), id: \.self) { column in
+                        ForEach(Array(0 ..< columns), id: \.self) { column in
                             Rectangle()
                                 .fill((row + column) % 2 == 0 ? color : Color.white)
                                 .frame(width: size, height: size)

@@ -1,8 +1,5 @@
 //
-//  Configuration.swift
-//  Demo
-//
-//  Created by Binh An Tran on 24/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -13,6 +10,7 @@ struct Configuration: Codable, Hashable {
     var border: Border
     var perspective: Perspective
     var background: Background
+    var watermark: Watermark
 }
 
 struct Border: Codable, Hashable {
@@ -48,6 +46,7 @@ extension Configuration {
         padding: 0,
         border: .default,
         perspective: .default,
-        background: .default
+        background: .default,
+        watermark: .default
     )
 }

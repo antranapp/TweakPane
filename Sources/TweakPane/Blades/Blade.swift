@@ -39,4 +39,3 @@ public struct FolderBlade: Blade {
         AnyView(renderInternally())
     }
 }
-

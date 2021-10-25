@@ -1,8 +1,5 @@
 //
-//  Background.swift
-//  Demo
-//
-//  Created by Binh An Tran on 24/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -20,5 +17,9 @@ struct Background: Codable, Hashable {
 }
 
 extension Background {
-    static let `default` = Background(style: .solid, color: .blue, size: 10)
+    static let `default` = Background(
+        style: .solid,
+        color: .blue,
+        size: 10
+    )
 }

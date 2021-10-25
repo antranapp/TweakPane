@@ -129,8 +129,8 @@ struct DemoView: View {
                                 binding: InputBinding($boolValue)
                             ),
                         ])
-                        .padding(.horizontal)
-                        .padding(.bottom, 100)
+                            .padding(.horizontal)
+                            .padding(.bottom, 100)
 
                     }
                 }

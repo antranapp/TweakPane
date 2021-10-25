@@ -3,9 +3,9 @@
 //
 
 import AnPhotosPicker
+import PagerTabStripView
 import SwiftUI
 import TweakPane
-import PagerTabStripView
 
 public struct PerfectBrandView: View {
 
@@ -37,7 +37,7 @@ public struct PerfectBrandView: View {
 
                         Spacer()
 
-                        PagerTabStripView() {
+                        PagerTabStripView {
                             colorPane
                                 .pagerTabItem {
                                     TitleNavBarItem(title: "Color")
@@ -50,7 +50,10 @@ public struct PerfectBrandView: View {
                                 .pagerTabItem {
                                     TitleNavBarItem(title: "Background")
                                 }
-
+                            watermarkPane
+                                .pagerTabItem {
+                                    TitleNavBarItem(title: "Watermark")
+                                }
                         }
                         .background(Color.white)
                         .padding(.bottom, 20)
@@ -115,22 +118,22 @@ public struct PerfectBrandView: View {
             Pane([
                 InputBlade(
                     name: "Inset Padding",
-                    option: .slider(range: 0...100),
+                    option: .slider(range: 0 ... 100),
                     binding: InputBinding($viewModel.configuration.padding)
                 ),
-
+                
                 InputBlade(
                     name: "Border Radius",
-                    option: .slider(range: 0...20),
+                    option: .slider(range: 0 ... 20),
                     binding: InputBinding($viewModel.configuration.border.radius)
                 ),
-
+                
                 InputBlade(
                     name: "Border Width",
-                    option: .slider(range: 0...20),
+                    option: .slider(range: 0 ... 20),
                     binding: InputBinding($viewModel.configuration.border.width)
                 ),
-
+                
                 InputBlade(
                     name: "Border Color",
                     binding: InputBinding($viewModel.configuration.border.color)
@@ -148,20 +151,20 @@ public struct PerfectBrandView: View {
                     option: .slider(range: -180 ... 180),
                     binding: InputBinding($viewModel.configuration.perspective.rotationX)
                 ),
-
+                
                 InputBlade(
                     name: "Rotation Y",
                     option: .slider(range: -180 ... 180),
                     binding: InputBinding($viewModel.configuration.perspective.rotationY)
                 ),
-
+                
                 InputBlade(
                     name: "Rotation Z",
                     option: .slider(range: -180 ... 180),
                     binding: InputBinding($viewModel.configuration.perspective.rotationZ)
                 ),
             ])
-            .padding(20)
+                .padding(20)
         }
     }
 
@@ -234,11 +237,62 @@ public struct PerfectBrandView: View {
                 ),
                 InputBlade(
                     name: "Size",
-                    option: .slider(range: 10...100),
+                    option: .slider(range: 10 ... 100),
                     binding: InputBinding($viewModel.configuration.background.size)
-                )
+                ),
             ])
-            .padding(20)
+                .padding(20)
+        }
+    }
+
+    @ViewBuilder
+    private var watermarkPane: some View {
+        ScrollView {
+            Pane([
+                InputBlade(
+                    name: "Text",
+                    binding: InputBinding($viewModel.configuration.watermark.text)
+                ),
+                InputBlade(
+                    name: "Position",
+                    option: .optionsImage([
+                        Image(systemName: "rectangle.inset.topleft.filled"),
+                        Image(systemName: "rectangle.inset.topright.filled"),
+                        Image(systemName: "rectangle.inset.bottomright.filled"),
+                        Image(systemName: "rectangle.inset.bottomleft.filled"),
+                    ]),
+                    binding: InputBinding(Binding<Int>(
+                        get: {
+                            switch viewModel.configuration.watermark.position {
+                            case .topLeft:
+                                return 0
+                            case .topRight:
+                                return 1
+                            case .bottomRight:
+                                return 2
+                            case .bottomLeft:
+                                return 3
+                            }
+                        },
+                        set: { newValue in
+                            switch newValue {
+                            case 0:
+                                viewModel.configuration.watermark.position = .topLeft
+                            case 1:
+                                viewModel.configuration.watermark.position = .topRight
+                            case 2:
+                                viewModel.configuration.watermark.position = .bottomRight
+                            case 3:
+                                viewModel.configuration.watermark.position = .bottomLeft
+
+                            default:
+                                assertionFailure("invalid index")
+                            }
+                        }
+                    ))
+                ),
+            ])
+                .padding(20)
         }
     }
 }

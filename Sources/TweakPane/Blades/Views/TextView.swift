@@ -11,5 +11,6 @@ struct TextView: View {
 
     var body: some View {
         TextField(name, text: $text)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
     }
 }

@@ -23,4 +23,3 @@ struct Section<Content: View>: View {
         }
     }
 }
-

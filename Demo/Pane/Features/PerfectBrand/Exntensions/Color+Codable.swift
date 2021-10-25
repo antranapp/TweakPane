@@ -1,8 +1,5 @@
 //
-//  Color+Codable.swift
-//  Demo
-//
-//  Created by Binh An Tran on 24/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import SwiftUI
@@ -35,11 +32,11 @@ extension Color: Codable {
 }
 
 private extension Color {
-#if os(macOS)
+    #if os(macOS)
     typealias SystemColor = NSColor
-#else
+    #else
     typealias SystemColor = UIColor
-#endif
+    #endif
 
     var colorComponents: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
         var r: CGFloat = 0
@@ -47,16 +44,16 @@ private extension Color {
         var b: CGFloat = 0
         var a: CGFloat = 0
 
-#if os(macOS)
+        #if os(macOS)
         SystemColor(self).getRed(&r, green: &g, blue: &b, alpha: &a)
         // Note that non RGB color will raise an exception, that I don't now how to catch because it is an Objc exception.
-#else
+        #else
         guard SystemColor(self).getRed(&r, green: &g, blue: &b, alpha: &a) else {
             // Pay attention that the color should be convertible into RGB format
             // Colors using hue, saturation and brightness won't work
             return nil
         }
-#endif
+        #endif
 
         return (r, g, b, a)
     }
