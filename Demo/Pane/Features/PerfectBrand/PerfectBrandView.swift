@@ -35,24 +35,22 @@ public struct PerfectBrandView: View {
                     VStack(spacing: 0) {
                         canvasView(image)
 
-                        Spacer()
-
                         PagerTabStripView {
-                            colorPane
+                            borderPane
                                 .pagerTabItem {
-                                    TitleNavBarItem(title: "Color")
+                                    TitleNavBarItem(symbol: "rectangle.inset.filled")
                                 }
                             perspectivePane
                                 .pagerTabItem {
-                                    TitleNavBarItem(title: "Perspective")
+                                    TitleNavBarItem(symbol: "perspective")
                                 }
                             backgroundPane
                                 .pagerTabItem {
-                                    TitleNavBarItem(title: "Background")
+                                    TitleNavBarItem(symbol: "eyedropper")
                                 }
                             watermarkPane
                                 .pagerTabItem {
-                                    TitleNavBarItem(title: "Watermark")
+                                    TitleNavBarItem(symbol: "checkmark.rectangle.fill")
                                 }
                         }
                         .background(Color.white)
@@ -97,6 +95,7 @@ public struct PerfectBrandView: View {
         .navigationBarTitle("", displayMode: .inline)
     }
 
+    @ViewBuilder
     private func canvasView(_ image: Image) -> some View {
         GeometryReader { proxy in
             ZStack {
@@ -113,7 +112,8 @@ public struct PerfectBrandView: View {
         }
     }
 
-    private var colorPane: some View {
+    @ViewBuilder
+    private var borderPane: some View {
         ScrollView {
             Pane([
                 InputBlade(
@@ -143,6 +143,7 @@ public struct PerfectBrandView: View {
         }
     }
 
+    @ViewBuilder
     private var perspectivePane: some View {
         ScrollView {
             Pane([
@@ -292,19 +293,19 @@ public struct PerfectBrandView: View {
                     ))
                 ),
             ])
-                .padding(20)
+            .padding(20)
         }
     }
 }
 
 struct TitleNavBarItem: View {
-    let title: String
+    let symbol: String
 
     var body: some View {
         VStack {
-            Text(title)
+            Image(systemName: symbol)
                 .foregroundColor(Color.gray)
-                .font(.subheadline)
+                .imageScale(.large)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
