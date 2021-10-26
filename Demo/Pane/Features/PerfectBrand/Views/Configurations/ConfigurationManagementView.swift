@@ -5,6 +5,7 @@
 import Combine
 import Foundation
 import SwiftUI
+import NotificationBannerSwift
 
 struct ConfigurationManagementView: View {
     @Environment(\.presentationMode) private var presentationMode
@@ -63,6 +64,9 @@ struct ConfigurationManagementView: View {
             }
             .onAppear {
                 viewModel.fetchConfigurationFiles()
+            }
+            .onReceive(viewModel.$message) { banner in
+                banner?.show()
             }
         }
     }

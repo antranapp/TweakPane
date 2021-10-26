@@ -126,6 +126,9 @@ public struct PerfectBrandView: View {
                 }
             }
         )
+        .onReceive(viewModel.$message) { banner in
+            banner?.show()
+        }
         .navigationBarTitle("", displayMode: .inline)
     }
 
@@ -137,11 +140,11 @@ public struct PerfectBrandView: View {
                     image: image,
                     configuration: viewModel.configuration
                 )
-                    .frame(
-                        width: proxy.size.width,
-                        height: proxy.size.height
-                    )
-                    .clipped()
+                .frame(
+                    width: proxy.size.width,
+                    height: proxy.size.height
+                )
+                .clipped()
             }
         }
     }
@@ -263,7 +266,6 @@ public struct PerfectBrandView: View {
                                     color: viewModel.configuration.background.color,
                                     size: size == 0 ? 40 : size
                                 )
-
                             default:
                                 assertionFailure("invalid index")
                             }
@@ -319,7 +321,6 @@ public struct PerfectBrandView: View {
                                 viewModel.configuration.watermark.position = .bottomRight
                             case 3:
                                 viewModel.configuration.watermark.position = .bottomLeft
-
                             default:
                                 assertionFailure("invalid index")
                             }

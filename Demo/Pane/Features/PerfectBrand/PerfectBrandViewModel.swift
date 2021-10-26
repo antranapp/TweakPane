@@ -4,6 +4,7 @@
 
 import Combine
 import SwiftUI
+import NotificationBannerSwift
 
 final class PerfectBrandViewModel: ObservableObject {
     enum State {
@@ -24,6 +25,7 @@ final class PerfectBrandViewModel: ObservableObject {
 
     @Published var selectedSourceIndex = 0
     @Published var imageURLString: String = ""
+    @Published var message: NotificationBanner?
 
     let fileProvider = FileProvider("configurations")
     private var cancellables = Set<AnyCancellable>()
@@ -75,18 +77,22 @@ final class PerfectBrandViewModel: ObservableObject {
                         case .finished:
                             break
                         case .failure(let error):
-                            print(error.localizedDescription)
+                            self?.message = NotificationBanner(
+                                title: "Error!",
+                                subtitle: error.localizedDescription,
+                                style: .success
+                            )
                         }
                     },
                 receiveValue: { [weak self] in
-                    print("Configuration saved successfully")
+                    self?.message = NotificationBanner(
+                        title: "Suceed!",
+                        subtitle: "Configuration saved successfully",
+                        style: .success
+                    )
                 }
             )
             .store(in: &cancellables)
-    }
-
-    func loadConfiguration() {
-
     }
 }
 
