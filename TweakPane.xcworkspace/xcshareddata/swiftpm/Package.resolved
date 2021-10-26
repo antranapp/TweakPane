@@ -20,12 +20,48 @@
         }
       },
       {
+        "package": "Files",
+        "repositoryURL": "https://github.com/JohnSundell/Files",
+        "state": {
+          "branch": null,
+          "revision": "d273b5b7025d386feef79ef6bad7de762e106eaf",
+          "version": "4.2.0"
+        }
+      },
+      {
+        "package": "MarqueeLabel",
+        "repositoryURL": "https://github.com/cbpowell/MarqueeLabel",
+        "state": {
+          "branch": null,
+          "revision": "f2c72a5f8568579dade6350dc26a482076d3d346",
+          "version": "4.3.0"
+        }
+      },
+      {
+        "package": "NotificationBannerSwift",
+        "repositoryURL": "https://github.com/Daltron/NotificationBanner",
+        "state": {
+          "branch": null,
+          "revision": "2ce5c49d8ee4865f01a3ce3bbe078664c78c7a3c",
+          "version": "3.0.6"
+        }
+      },
+      {
         "package": "PagerTabStripView",
         "repositoryURL": "https://github.com/xmartlabs/PagerTabStripView.git",
         "state": {
           "branch": null,
           "revision": "582aa625a2e824930a6806d60ed6e9f999ee318c",
           "version": "3.0.0"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
         }
       }
     ]

@@ -25,6 +25,7 @@ final class PerfectBrandViewModel: ObservableObject {
     @Published var selectedSourceIndex = 0
     @Published var imageURLString: String = ""
 
+    let fileProvider = FileProvider("configurations")
     private var cancellables = Set<AnyCancellable>()
 
     init() {
@@ -62,5 +63,35 @@ final class PerfectBrandViewModel: ObservableObject {
 
     func select(_ image: UIImage) {
         state = .hasData(Image(uiImage: image))
+    }
+
+    func saveConfiguration() {
+        let filename = configuration.suggestedFilename
+        fileProvider.save(configuration, fileName: filename)
+            .sink (
+                receiveCompletion:
+                    { [weak self] result in
+                        switch result {
+                        case .finished:
+                            break
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    },
+                receiveValue: { [weak self] in
+                    print("Configuration saved successfully")
+                }
+            )
+            .store(in: &cancellables)
+    }
+
+    func loadConfiguration() {
+
+    }
+}
+
+private extension Configuration {
+    var suggestedFilename: String {
+        "\(description).json"
     }
 }

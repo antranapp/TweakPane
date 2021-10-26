@@ -9,10 +9,16 @@ import TweakPane
 
 public struct PerfectBrandView: View {
 
-    // ViewModel
+    enum Sheet: Identifiable {
+        var id: Sheet { self }
+
+        case photosPicker
+        case configurations
+    }
+
     @StateObject private var viewModel = PerfectBrandViewModel()
 
-    @State private var isPresentingImagePicker = false
+    @State private var sheetView: Sheet? = nil
 
     public init() {}
 
@@ -61,17 +67,29 @@ public struct PerfectBrandView: View {
                 .navigationBarTitle("", displayMode: .inline)
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Menu {
+                            Button(
+                                action: {
+                                    viewModel.saveConfiguration()
+                                },
+                                label: {
+                                    Label("Save preset", image: "square.and.arrow.up")
+                                }
+                            )
+                            Button(
+                                action: {
+                                    sheetView = .configurations
+                                },
+                                label: {
+                                    Label("Load preset", image: "square.and.arrow.up")
+                                }
+                            )
+                        } label: {
+                            Image(systemName: "doc.richtext")
+                        }
                         Button(
                             action: {
-                                print("Share")
-                            },
-                            label: {
-                                Image(systemName: "square.and.arrow.up")
-                            }
-                        )
-                        Button(
-                            action: {
-                                isPresentingImagePicker.toggle()
+                                sheetView = .photosPicker
                             },
                             label: {
                                 Image(systemName: "plus")
@@ -81,17 +99,33 @@ public struct PerfectBrandView: View {
                 }
             }
 
-        }.sheet(isPresented: $isPresentingImagePicker) {
-            AnPhotosPicker(
-                filter: .images,
-                selectionLimit: 1,
-                completionHandler: { (images: [SelectedImage]) in
-                    isPresentingImagePicker = false
-                    guard let selectedImage = images.first else { return }
-                    viewModel.select(selectedImage.image)
-                }
-            )
         }
+        .sheet(
+            item: $sheetView,
+            onDismiss: {
+                sheetView = nil
+            },
+            content: { item in
+                switch item {
+                case .photosPicker:
+                    AnPhotosPicker(
+                        filter: .images,
+                        selectionLimit: 1,
+                        completionHandler: { (images: [SelectedImage]) in
+                            sheetView = nil
+                            guard let selectedImage = images.first else { return }
+                            viewModel.select(selectedImage.image)
+                        }
+                    )
+                case .configurations:
+                    ConfigurationManagementView(
+                        fileProvider: viewModel.fileProvider,
+                        configuration: $viewModel.configuration
+                    )
+
+                }
+            }
+        )
         .navigationBarTitle("", displayMode: .inline)
     }
 
@@ -103,11 +137,11 @@ public struct PerfectBrandView: View {
                     image: image,
                     configuration: viewModel.configuration
                 )
-                .frame(
-                    width: proxy.size.width,
-                    height: proxy.size.height
-                )
-                .clipped()
+                    .frame(
+                        width: proxy.size.width,
+                        height: proxy.size.height
+                    )
+                    .clipped()
             }
         }
     }
@@ -196,12 +230,12 @@ public struct PerfectBrandView: View {
                                         size: 5,
                                         color: viewModel.configuration.background.color
                                     )
-                                    .frame(width: 50, height: 50)
-                                    .cornerRadius(13)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 13)
-                                            .stroke(Color.gray, lineWidth: 2)
-                                    )
+                                        .frame(width: 50, height: 50)
+                                        .cornerRadius(13)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 13)
+                                                .stroke(Color.gray, lineWidth: 2)
+                                        )
                                 )
                             default:
                                 assertionFailure("invalid index")
@@ -293,7 +327,7 @@ public struct PerfectBrandView: View {
                     ))
                 ),
             ])
-            .padding(20)
+                .padding(20)
         }
     }
 }

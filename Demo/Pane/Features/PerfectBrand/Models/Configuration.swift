@@ -50,3 +50,9 @@ extension Configuration {
         watermark: .default
     )
 }
+
+extension Configuration: CustomStringConvertible {
+    public var description: String {
+        "Configuration_\(Date())"
+    }
+}

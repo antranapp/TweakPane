@@ -23,6 +23,12 @@
 		D7292BB42725445900A943B0 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7292BB32725445900A943B0 /* Background.swift */; };
 		D73B5892272614A200207B6F /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B5891272614A200207B6F /* WatermarkView.swift */; };
 		D73B5894272614CA00207B6F /* Watermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B5893272614CA00207B6F /* Watermark.swift */; };
+		D73FB3262728B2B700B941BE /* FileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73FB3252728B2B700B941BE /* FileProvider.swift */; };
+		D73FB3292728B2DD00B941BE /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = D73FB3282728B2DD00B941BE /* Files */; };
+		D73FB32B2728B33000B941BE /* Encodable+PrettyPrintJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73FB32A2728B33000B941BE /* Encodable+PrettyPrintJson.swift */; };
+		D73FB32F2728B80F00B941BE /* ConfigurationManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73FB32D2728B80F00B941BE /* ConfigurationManagementView.swift */; };
+		D73FB3302728B80F00B941BE /* ConfigurationManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73FB32E2728B80F00B941BE /* ConfigurationManagementViewModel.swift */; };
+		D73FB3332728B92000B941BE /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D73FB3322728B92000B941BE /* NotificationBannerSwift */; };
 		D740594B2725481B00730543 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740594A2725481B00730543 /* BackgroundView.swift */; };
 		D740594E2725482D00730543 /* SquarePatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740594D2725482D00730543 /* SquarePatternView.swift */; };
 		D78283D22720C46B00CC059C /* TweakPane in Frameworks */ = {isa = PBXBuildFile; productRef = D78283D12720C46B00CC059C /* TweakPane */; };
@@ -53,6 +59,10 @@
 		D7292BB32725445900A943B0 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		D73B5891272614A200207B6F /* WatermarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
 		D73B5893272614CA00207B6F /* Watermark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watermark.swift; sourceTree = "<group>"; };
+		D73FB3252728B2B700B941BE /* FileProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProvider.swift; sourceTree = "<group>"; };
+		D73FB32A2728B33000B941BE /* Encodable+PrettyPrintJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+PrettyPrintJson.swift"; sourceTree = "<group>"; };
+		D73FB32D2728B80F00B941BE /* ConfigurationManagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationManagementView.swift; sourceTree = "<group>"; };
+		D73FB32E2728B80F00B941BE /* ConfigurationManagementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationManagementViewModel.swift; sourceTree = "<group>"; };
 		D740594A2725481B00730543 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		D740594D2725482D00730543 /* SquarePatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquarePatternView.swift; sourceTree = "<group>"; };
 		D78283DB2720CA4300CC059C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
@@ -71,7 +81,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D726FC8B2724C78A00D5089E /* PagerTabStripView in Frameworks */,
+				D73FB3332728B92000B941BE /* NotificationBannerSwift in Frameworks */,
 				7F7B9AAB271BF98100522C99 /* BottomSheet in Frameworks */,
+				D73FB3292728B2DD00B941BE /* Files in Frameworks */,
 				D78283D22720C46B00CC059C /* TweakPane in Frameworks */,
 				D78283DF2720CAFA00CC059C /* AnPhotosPicker in Frameworks */,
 			);
@@ -134,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				D703C47B2724FDB4005A1942 /* Color+Codable.swift */,
+				D73FB32A2728B33000B941BE /* Encodable+PrettyPrintJson.swift */,
 			);
 			path = Exntensions;
 			sourceTree = "<group>";
@@ -149,6 +162,7 @@
 		D726FC842724C25900D5089E /* PerfectBrand */ = {
 			isa = PBXGroup;
 			children = (
+				D73FB3242728B2AA00B941BE /* DataAccess */,
 				D74059492725481100730543 /* Views */,
 				D7292BB22725444C00A943B0 /* Models */,
 				D703C47A2724FDA2005A1942 /* Exntensions */,
@@ -176,9 +190,27 @@
 			path = Watermark;
 			sourceTree = "<group>";
 		};
+		D73FB3242728B2AA00B941BE /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				D73FB3252728B2B700B941BE /* FileProvider.swift */,
+			);
+			path = DataAccess;
+			sourceTree = "<group>";
+		};
+		D73FB32C2728B7F700B941BE /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				D73FB32D2728B80F00B941BE /* ConfigurationManagementView.swift */,
+				D73FB32E2728B80F00B941BE /* ConfigurationManagementViewModel.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		D74059492725481100730543 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D73FB32C2728B7F700B941BE /* Configurations */,
 				D73B58902726149500207B6F /* Watermark */,
 				D740594C2725482300730543 /* Background */,
 				D703C4762724FBD7005A1942 /* CanvasView.swift */,
@@ -276,6 +308,8 @@
 				D78283D12720C46B00CC059C /* TweakPane */,
 				D78283DE2720CAFA00CC059C /* AnPhotosPicker */,
 				D726FC8A2724C78A00D5089E /* PagerTabStripView */,
+				D73FB3282728B2DD00B941BE /* Files */,
+				D73FB3322728B92000B941BE /* NotificationBannerSwift */,
 			);
 			productName = Pane;
 			productReference = 7F7B9A98271BF3FA00522C99 /* Demo.app */;
@@ -309,6 +343,8 @@
 				7F7B9AA9271BF98100522C99 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 				D78283DD2720CAFA00CC059C /* XCRemoteSwiftPackageReference "AnPhotosPicker" */,
 				D726FC892724C78A00D5089E /* XCRemoteSwiftPackageReference "PagerTabStripView" */,
+				D73FB3272728B2DD00B941BE /* XCRemoteSwiftPackageReference "Files" */,
+				D73FB3312728B92000B941BE /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 			);
 			productRefGroup = 7F7B9A99271BF3FA00522C99 /* Products */;
 			projectDirPath = "";
@@ -337,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D78283DC2720CA4300CC059C /* PhotoView.swift in Sources */,
+				D73FB32B2728B33000B941BE /* Encodable+PrettyPrintJson.swift in Sources */,
 				D70E82E9272107BA008F7130 /* StepperView.swift in Sources */,
 				D703C47C2724FDB4005A1942 /* Color+Codable.swift in Sources */,
 				D703C4772724FBD7005A1942 /* CanvasView.swift in Sources */,
@@ -349,14 +386,17 @@
 				D703C4792724FCFC005A1942 /* Configuration.swift in Sources */,
 				D78283E12720CB6200CC059C /* PhotoViewModel.swift in Sources */,
 				D726FC882724C29F00D5089E /* PerfectBrandViewModel.swift in Sources */,
+				D73FB3302728B80F00B941BE /* ConfigurationManagementViewModel.swift in Sources */,
 				D78283ED2720D88700CC059C /* OtherViews.swift in Sources */,
 				D78283E62720D0BE00CC059C /* ContentView.swift in Sources */,
 				D78283EE2720D88700CC059C /* ColorPickerView.swift in Sources */,
+				D73FB32F2728B80F00B941BE /* ConfigurationManagementView.swift in Sources */,
 				D740594E2725482D00730543 /* SquarePatternView.swift in Sources */,
 				D740594B2725481B00730543 /* BackgroundView.swift in Sources */,
 				D726FC862724C27C00D5089E /* PerfectBrandView.swift in Sources */,
 				D78283EF2720D88700CC059C /* DatePickerView.swift in Sources */,
 				D78283E42720CC9C00CC059C /* View+Conditions.swift in Sources */,
+				D73FB3262728B2B700B941BE /* FileProvider.swift in Sources */,
 				7F7B9A9C271BF3FA00522C99 /* PaneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +620,22 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		D73FB3272728B2DD00B941BE /* XCRemoteSwiftPackageReference "Files" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Files";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		D73FB3312728B92000B941BE /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Daltron/NotificationBanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		D78283DD2720CAFA00CC059C /* XCRemoteSwiftPackageReference "AnPhotosPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/antranapp/AnPhotosPicker";
@@ -600,6 +656,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D726FC892724C78A00D5089E /* XCRemoteSwiftPackageReference "PagerTabStripView" */;
 			productName = PagerTabStripView;
+		};
+		D73FB3282728B2DD00B941BE /* Files */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D73FB3272728B2DD00B941BE /* XCRemoteSwiftPackageReference "Files" */;
+			productName = Files;
+		};
+		D73FB3322728B92000B941BE /* NotificationBannerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D73FB3312728B92000B941BE /* XCRemoteSwiftPackageReference "NotificationBanner" */;
+			productName = NotificationBannerSwift;
 		};
 		D78283D12720C46B00CC059C /* TweakPane */ = {
 			isa = XCSwiftPackageProductDependency;
