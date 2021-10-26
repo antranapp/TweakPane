@@ -71,7 +71,7 @@ public struct PerfectBrandView: View {
                         )
                         Button(
                             action: {
-                                print("Load")
+                                isPresentingImagePicker.toggle()
                             },
                             label: {
                                 Image(systemName: "plus")
