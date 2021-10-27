@@ -32,7 +32,11 @@ struct ConfigurationManagementView: View {
                                 configuration = selectedConfiguration
                                 presentationMode.wrappedValue.dismiss()
                             } else {
-                                print("Failed to parse configuration")
+                                viewModel.message = NotificationBanner(
+                                    title: "Error!",
+                                    subtitle: "Failed to parse configuration",
+                                    style: .success
+                                )
                             }
                         }) {
                             Text(file.name)

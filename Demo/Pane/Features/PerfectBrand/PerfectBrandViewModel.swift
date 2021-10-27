@@ -11,7 +11,7 @@ final class PerfectBrandViewModel: ObservableObject {
         case intializing
         case loading
         case empty
-        case hasData(Image)
+        case hasData(UIImage)
         case error(Error)
     }
 
@@ -34,7 +34,7 @@ final class PerfectBrandViewModel: ObservableObject {
         $selectedSourceIndex
             .sink { [weak self] value in
                 if value == 0 {
-                    let image = Image("sample")
+                    let image = UIImage(named: "sample")!
                     self?.state = .hasData(image)
                 }
             }
@@ -46,7 +46,6 @@ final class PerfectBrandViewModel: ObservableObject {
         state = .loading
         URLSession.shared.dataTaskPublisher(for: url)
             .compactMap { UIImage(data: $0.data) }
-            .map { Image(uiImage: $0) }
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] result in
@@ -64,12 +63,19 @@ final class PerfectBrandViewModel: ObservableObject {
     }
 
     func select(_ image: UIImage) {
-        state = .hasData(Image(uiImage: image))
+        state = .hasData(image)
     }
 
     func saveConfiguration() {
+        guard case let .hasData(image) = state else { return }
+
         let filename = configuration.suggestedFilename
-        fileProvider.save(configuration, fileName: filename)
+        let imageFilename = "image.png"
+
+        fileProvider
+            .save(configuration, fileName: filename)
+            .flatMap { self.fileProvider.saveImage(image, fileName: imageFilename) }
+            .receive(on: DispatchQueue.main)
             .sink (
                 receiveCompletion:
                     { [weak self] result in
@@ -94,6 +100,7 @@ final class PerfectBrandViewModel: ObservableObject {
             )
             .store(in: &cancellables)
     }
+
 }
 
 private extension Configuration {

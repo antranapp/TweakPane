@@ -39,7 +39,7 @@ public struct PerfectBrandView: View {
                         .fill(Color.black)
 
                     VStack(spacing: 0) {
-                        canvasView(image)
+                        canvasView(Image(uiImage: image))
 
                         PagerTabStripView {
                             borderPane

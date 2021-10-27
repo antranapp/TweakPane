@@ -5,6 +5,7 @@
 import Combine
 import Files
 import Foundation
+import UIKit.UIImage
 
 public final class FileProvider {
 
@@ -27,8 +28,8 @@ public final class FileProvider {
         }).setFailureType(to: FileProviderError.self).eraseToAnyPublisher()
     }
 
-    func save<T: Codable>(_ object: T, fileName: String) -> AnyPublisher<Void, FileProviderError> {
-        guard let string = object.prettyPrintedJSONString, let data = string.data(using: .utf8) else {
+    func save<T: Encodable>(_ object: T, fileName: String) -> AnyPublisher<Void, FileProviderError> {
+        guard let data = try? JSONEncoder().encode(object) else {
             return Fail(error: FileProviderError.stringConversionFailure).eraseToAnyPublisher()
         }
 
@@ -36,6 +37,22 @@ public final class FileProvider {
             return Fail(error: FileProviderError.fileSystemFailure).eraseToAnyPublisher()
         }
 
+        return save(data: data, in: folder, with: fileName)
+    }
+
+    func saveImage(_ image: UIImage, fileName: String) -> AnyPublisher<Void, FileProviderError> {
+        guard let data = image.pngData() else {
+            return Fail(error: FileProviderError.stringConversionFailure).eraseToAnyPublisher()
+        }
+
+        guard let folder = rootFolder else {
+            return Fail(error: FileProviderError.fileSystemFailure).eraseToAnyPublisher()
+        }
+
+        return save(data: data, in: folder, with: fileName)
+    }
+
+    private func save(data: Data, in folder: Folder, with fileName: String) -> AnyPublisher<Void, FileProviderError> {
         do {
             let file = try folder.createFile(named: fileName)
             try file.write(data)
@@ -45,7 +62,7 @@ public final class FileProvider {
         }
     }
 
-    private func read<T: Codable>(filePath: String) -> T? {
+    private func read<T: Decodable>(filePath: String) -> T? {
         do {
             let file = try File(path: filePath)
             let data = try file.read()
