@@ -8,7 +8,7 @@ import NotificationBannerSwift
 
 extension ConfigurationManagementView {
     final class ViewModel: ObservableObject {
-        @Published var files: [ConfigurationFile] = []
+        @Published var folders: [ConfigurationFolder] = []
         @Published var message: NotificationBanner?
 
         private let fileProvider: FileProvider
@@ -20,7 +20,7 @@ extension ConfigurationManagementView {
         }
 
         func fetchConfigurationFiles() {
-            fileProvider.listConfigurationFiles().sink { [weak self] result in
+            fileProvider.listConfigurationFolders().sink { [weak self] result in
                 switch result {
                 case .failure:
                     self?.message = NotificationBanner(
@@ -30,20 +30,33 @@ extension ConfigurationManagementView {
                     )
                 default: break
                 }
-            } receiveValue: { files in
-                self.files = files
+            } receiveValue: { folders in
+                self.folders = folders
             }
             .store(in: &bag)
 
         }
 
-        func configuration(from file: ConfigurationFile) -> Configuration? {
-            fileProvider.read(file.name)
+        func configuration(from folder: ConfigurationFolder) -> SelectedConfiguration? {
+            guard let folder = try? fileProvider.rootFolder?.subfolder(named: folder.name) else {
+                return nil
+            }
+
+            guard let configuration: Configuration = fileProvider.read("configuration.json", in: folder) else {
+                return nil
+            }
+            let image = fileProvider.readImage(in: folder)
+
+            return SelectedConfiguration(
+                name: folder.name,
+                configuration: configuration,
+                image: image
+            )
         }
 
         func removeFiles(at indexSet: IndexSet) {
-            let file = files[indexSet.first!]
-            fileProvider.delete(file.name).sink { [weak self] result in
+            let folder = folders[indexSet.first!]
+            fileProvider.deleteFolder(folder.name).sink { [weak self] result in
                 switch result {
                 case .failure:
                     self?.message = NotificationBanner(
@@ -52,7 +65,7 @@ extension ConfigurationManagementView {
                         style: .danger
                     )
                 case .finished:
-                    self?.files.remove(at: indexSet.first!)
+                    self?.folders.remove(at: indexSet.first!)
                 }
 
             } receiveValue: { _ in }

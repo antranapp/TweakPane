@@ -12,11 +12,11 @@ struct ConfigurationManagementView: View {
 
     @StateObject private var viewModel: ViewModel
 
-    @Binding var configuration: Configuration
+    @Binding var configuration: SelectedConfiguration?
 
     init(
         fileProvider: FileProvider,
-        configuration: Binding<Configuration>
+        configuration: Binding<SelectedConfiguration?>
     ) {
         _viewModel = StateObject(wrappedValue: ViewModel(fileProvider: fileProvider))
         _configuration = configuration
@@ -25,21 +25,21 @@ struct ConfigurationManagementView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.files, id: \.self) { file in
+                ForEach(viewModel.folders, id: \.self) { folder in
                     HStack {
                         Button(action: {
-                            if let selectedConfiguration = viewModel.configuration(from: file) {
+                            if let selectedConfiguration = viewModel.configuration(from: folder) {
                                 configuration = selectedConfiguration
                                 presentationMode.wrappedValue.dismiss()
                             } else {
                                 viewModel.message = NotificationBanner(
                                     title: "Error!",
                                     subtitle: "Failed to parse configuration",
-                                    style: .success
+                                    style: .danger
                                 )
                             }
                         }) {
-                            Text(file.name)
+                            Text(folder.name)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }

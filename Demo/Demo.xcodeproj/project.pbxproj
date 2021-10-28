@@ -15,6 +15,7 @@
 		D703C4772724FBD7005A1942 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703C4762724FBD7005A1942 /* CanvasView.swift */; };
 		D703C4792724FCFC005A1942 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703C4782724FCFC005A1942 /* Configuration.swift */; };
 		D703C47C2724FDB4005A1942 /* Color+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703C47B2724FDB4005A1942 /* Color+Codable.swift */; };
+		D705D702272A08D1003FCD95 /* AlertUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705D701272A08D1003FCD95 /* AlertUIView.swift */; };
 		D70E82E9272107BA008F7130 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70E82E8272107BA008F7130 /* StepperView.swift */; };
 		D70E82EC272120CB008F7130 /* SimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70E82EB272120CB008F7130 /* SimpleView.swift */; };
 		D726FC862724C27C00D5089E /* PerfectBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D726FC852724C27C00D5089E /* PerfectBrandView.swift */; };
@@ -53,6 +54,7 @@
 		D703C4762724FBD7005A1942 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		D703C4782724FCFC005A1942 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		D703C47B2724FDB4005A1942 /* Color+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Codable.swift"; sourceTree = "<group>"; };
+		D705D701272A08D1003FCD95 /* AlertUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUIView.swift; sourceTree = "<group>"; };
 		D70E82E8272107BA008F7130 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		D70E82EB272120CB008F7130 /* SimpleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleView.swift; sourceTree = "<group>"; };
 		D726FC852724C27C00D5089E /* PerfectBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectBrandView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,22 @@
 			path = Exntensions;
 			sourceTree = "<group>";
 		};
+		D705D6FF272A08BE003FCD95 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D705D700272A08C2003FCD95 /* Views */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D705D700272A08C2003FCD95 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D705D701272A08D1003FCD95 /* AlertUIView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D70E82EA272120CB008F7130 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +182,7 @@
 		D726FC842724C25900D5089E /* PerfectBrand */ = {
 			isa = PBXGroup;
 			children = (
+				D705D6FF272A08BE003FCD95 /* Utils */,
 				D73FB3242728B2AA00B941BE /* DataAccess */,
 				D74059492725481100730543 /* Views */,
 				D7292BB22725444C00A943B0 /* Models */,
@@ -396,6 +415,7 @@
 				D78283EE2720D88700CC059C /* ColorPickerView.swift in Sources */,
 				D73FB32F2728B80F00B941BE /* ConfigurationManagementView.swift in Sources */,
 				D740594E2725482D00730543 /* SquarePatternView.swift in Sources */,
+				D705D702272A08D1003FCD95 /* AlertUIView.swift in Sources */,
 				D740594B2725481B00730543 /* BackgroundView.swift in Sources */,
 				D726FC862724C27C00D5089E /* PerfectBrandView.swift in Sources */,
 				D78283EF2720D88700CC059C /* DatePickerView.swift in Sources */,

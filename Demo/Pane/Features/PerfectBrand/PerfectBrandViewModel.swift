@@ -5,6 +5,7 @@
 import Combine
 import SwiftUI
 import NotificationBannerSwift
+import UIKit.UIImage
 
 final class PerfectBrandViewModel: ObservableObject {
     enum State {
@@ -13,6 +14,14 @@ final class PerfectBrandViewModel: ObservableObject {
         case empty
         case hasData(UIImage)
         case error(Error)
+    }
+
+    enum Sheet: Identifiable {
+        var id: Sheet { self }
+
+        case photosPicker
+        case configurations
+        case enterFolderName
     }
 
     enum Constants {
@@ -26,6 +35,18 @@ final class PerfectBrandViewModel: ObservableObject {
     @Published var selectedSourceIndex = 0
     @Published var imageURLString: String = ""
     @Published var message: NotificationBanner?
+
+    @Published var selectedConfiguration: SelectedConfiguration? {
+        didSet {
+            if let selectedConfiguration = selectedConfiguration {
+                configuration = selectedConfiguration.configuration
+                let image = selectedConfiguration.image ?? UIImage(named: "sample")!
+                state = .hasData(image)
+            }
+        }
+    }
+
+    @Published var sheetView: Sheet? = nil
 
     let fileProvider = FileProvider("configurations")
     private var cancellables = Set<AnyCancellable>()
@@ -67,14 +88,19 @@ final class PerfectBrandViewModel: ObservableObject {
     }
 
     func saveConfiguration() {
+        guard let selectedConfiguration = selectedConfiguration else {
+            sheetView = .enterFolderName
+            return
+        }
+
+        saveConfiguration(in: selectedConfiguration.name)
+    }
+
+    func saveConfiguration(in folderName: String) {
         guard case let .hasData(image) = state else { return }
 
-        let filename = configuration.suggestedFilename
-        let imageFilename = "image.png"
-
         fileProvider
-            .save(configuration, fileName: filename)
-            .flatMap { self.fileProvider.saveImage(image, fileName: imageFilename) }
+            .save(configuration: configuration, image: image, in: folderName)
             .receive(on: DispatchQueue.main)
             .sink (
                 receiveCompletion:
@@ -103,8 +129,8 @@ final class PerfectBrandViewModel: ObservableObject {
 
 }
 
-private extension Configuration {
-    var suggestedFilename: String {
-        "\(description).json"
-    }
+struct SelectedConfiguration {
+    let name: String
+    let configuration: Configuration
+    let image: UIImage?
 }

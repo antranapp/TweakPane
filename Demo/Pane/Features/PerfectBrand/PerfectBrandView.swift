@@ -9,16 +9,8 @@ import TweakPane
 
 public struct PerfectBrandView: View {
 
-    enum Sheet: Identifiable {
-        var id: Sheet { self }
-
-        case photosPicker
-        case configurations
-    }
 
     @StateObject private var viewModel = PerfectBrandViewModel()
-
-    @State private var sheetView: Sheet? = nil
 
     public init() {}
 
@@ -78,7 +70,7 @@ public struct PerfectBrandView: View {
                             )
                             Button(
                                 action: {
-                                    sheetView = .configurations
+                                    viewModel.sheetView = .configurations
                                 },
                                 label: {
                                     Label("Load preset", image: "square.and.arrow.up")
@@ -89,7 +81,7 @@ public struct PerfectBrandView: View {
                         }
                         Button(
                             action: {
-                                sheetView = .photosPicker
+                                viewModel.sheetView = .photosPicker
                             },
                             label: {
                                 Image(systemName: "plus")
@@ -101,9 +93,9 @@ public struct PerfectBrandView: View {
 
         }
         .sheet(
-            item: $sheetView,
+            item: $viewModel.sheetView,
             onDismiss: {
-                sheetView = nil
+                viewModel.sheetView = nil
             },
             content: { item in
                 switch item {
@@ -112,7 +104,7 @@ public struct PerfectBrandView: View {
                         filter: .images,
                         selectionLimit: 1,
                         completionHandler: { (images: [SelectedImage]) in
-                            sheetView = nil
+                            viewModel.sheetView = nil
                             guard let selectedImage = images.first else { return }
                             viewModel.select(selectedImage.image)
                         }
@@ -120,10 +112,32 @@ public struct PerfectBrandView: View {
                 case .configurations:
                     ConfigurationManagementView(
                         fileProvider: viewModel.fileProvider,
-                        configuration: $viewModel.configuration
+                        configuration: $viewModel.selectedConfiguration
                     )
 
+                case .enterFolderName:
+                    AlertWrapper(
+                        isPresented: Binding(
+                            get: {
+                                viewModel.sheetView == .enterFolderName
+                            },
+                            set: { _ in
+                                viewModel.sheetView = nil
+                            }
+                        ),
+                        alert: TextAlert(
+                            title: "Name",
+                            message: "Please enter a name",
+                            action: { folderName in
+                                if let folderName = folderName {
+                                    viewModel.saveConfiguration(in: folderName)
+                                }
+                            }
+                        ),
+                        content: EmptyView()
+                    )
                 }
+
             }
         )
         .onReceive(viewModel.$message) { banner in
