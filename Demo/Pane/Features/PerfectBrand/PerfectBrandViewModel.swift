@@ -17,11 +17,20 @@ final class PerfectBrandViewModel: ObservableObject {
     }
 
     enum Sheet: Identifiable {
-        var id: Sheet { self }
+        var id: String {
+            switch self {
+            case .photosPicker(let id):
+                return id
+            case .configurations(let id):
+                return id
+            case .enterFolderName(let id, _ , _):
+                return id
+            }
+        }
 
-        case photosPicker
-        case configurations
-        case enterFolderName
+        case photosPicker(id: String)
+        case configurations(id: String)
+        case enterFolderName(id: String, image: UIImage, configuration: Configuration)
     }
 
     enum Constants {
@@ -88,8 +97,10 @@ final class PerfectBrandViewModel: ObservableObject {
     }
 
     func saveConfiguration() {
+        guard case let .hasData(image) = state else { return }
+
         guard let selectedConfiguration = selectedConfiguration else {
-            sheetView = .enterFolderName
+            sheetView = .enterFolderName(id: UUID().uuidString, image: image, configuration: configuration)
             return
         }
 

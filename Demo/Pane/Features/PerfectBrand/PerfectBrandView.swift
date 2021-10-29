@@ -70,7 +70,7 @@ public struct PerfectBrandView: View {
                             )
                             Button(
                                 action: {
-                                    viewModel.sheetView = .configurations
+                                    viewModel.sheetView = .configurations(id: UUID().uuidString)
                                 },
                                 label: {
                                     Label("Load preset", image: "square.and.arrow.up")
@@ -81,7 +81,7 @@ public struct PerfectBrandView: View {
                         }
                         Button(
                             action: {
-                                viewModel.sheetView = .photosPicker
+                                viewModel.sheetView = .photosPicker(id: UUID().uuidString)
                             },
                             label: {
                                 Image(systemName: "plus")
@@ -115,27 +115,14 @@ public struct PerfectBrandView: View {
                         configuration: $viewModel.selectedConfiguration
                     )
 
-                case .enterFolderName:
-                    AlertWrapper(
-                        isPresented: Binding(
-                            get: {
-                                viewModel.sheetView == .enterFolderName
-                            },
-                            set: { _ in
-                                viewModel.sheetView = nil
-                            }
-                        ),
-                        alert: TextAlert(
-                            title: "Name",
-                            message: "Please enter a name",
-                            action: { folderName in
-                                if let folderName = folderName {
-                                    viewModel.saveConfiguration(in: folderName)
-                                }
-                            }
-                        ),
-                        content: EmptyView()
-                    )
+                case .enterFolderName(_, let image, let configuration):
+                    PreviewView(
+                        folderName: "",
+                        image: image,
+                        configuration: configuration
+                    ) {
+                        viewModel.saveConfiguration(in: $0)
+                    }
                 }
 
             }
