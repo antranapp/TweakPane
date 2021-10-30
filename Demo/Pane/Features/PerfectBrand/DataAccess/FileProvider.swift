@@ -13,7 +13,6 @@ public final class FileProvider {
 
     init(_ rootFolderName: String) {
         rootFolder = try? Folder.documents?.createSubfolderIfNeeded(withName: rootFolderName)
-        print(rootFolder)
     }
 
     func listConfigurationFolders() -> AnyPublisher<[ConfigurationFolder], FileProviderError> {

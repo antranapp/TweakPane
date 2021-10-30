@@ -16,5 +16,6 @@ struct SimpleView: View {
                 InputBlade(name: "Text", binding: InputBinding($text)),
             ])
         }
+        .padding()
     }
 }
