@@ -58,6 +58,15 @@ public struct PerfectBrandView: View {
                 .navigationBarTitle("", displayMode: .inline)
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button(
+                            action: {
+                                viewModel.isShowingConfirmingNewPhoto.toggle()
+                            },
+                            label: {
+                                Image(systemName: "doc")
+                            }
+                        )
+
                         Menu {
                             Button(
                                 action: {
@@ -78,6 +87,7 @@ public struct PerfectBrandView: View {
                         } label: {
                             Image(systemName: "doc.richtext")
                         }
+                        
                         Button(
                             action: {
                                 viewModel.sheetView = .photosPicker(id: UUID().uuidString)
@@ -89,8 +99,19 @@ public struct PerfectBrandView: View {
                     }
                 }
             }
-
         }
+        .actionSheet(isPresented: $viewModel.isShowingConfirmingNewPhoto, content: {
+            ActionSheet(
+                title: Text("Confirmation"),
+                message: Text("Your current unsaved changes will be lost!\nDo you want to continue?"),
+                buttons: [
+                    Alert.Button.default(Text("Yes")) {
+                        viewModel.genereateNewConfiguration()
+                    },
+                    .cancel(),
+                ]
+            )
+        })
         .sheet(
             item: $viewModel.sheetView,
             onDismiss: {

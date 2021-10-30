@@ -56,6 +56,7 @@ final class PerfectBrandViewModel: ObservableObject {
     }
 
     @Published var sheetView: Sheet? = nil
+    @Published var isShowingConfirmingNewPhoto: Bool = false
 
     let fileProvider = FileProvider("configurations")
     private var cancellables = Set<AnyCancellable>()
@@ -137,6 +138,12 @@ final class PerfectBrandViewModel: ObservableObject {
             )
             .store(in: &cancellables)
     }
+
+    func genereateNewConfiguration() {
+        configuration = .default
+        state = .hasData(UIImage(named: "sample")!)
+    }
+
 
 }
 
