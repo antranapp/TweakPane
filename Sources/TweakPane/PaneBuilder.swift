@@ -8,14 +8,34 @@
 import Foundation
 
 @resultBuilder
-public struct BladeBuilder {
+public struct BladesBuilder {
     static func buildBlock()-> [Blade] {
         []
     }
 }
 
-public extension BladeBuilder {
-    static func buildBlock(_ blades: Blade...) -> [Blade] {
-        blades
+public extension BladesBuilder {
+    static func buildBlock(_ blades: BladesConvertible...) -> [Blade] {
+        blades.flatMap { $0.asBlades() }
+    }
+}
+
+extension BladesBuilder {
+    public static func buildOptional(_ component: [Blade]?) -> [Blade] {
+        component ?? []
+    }
+}
+
+extension Array: BladesConvertible where Element == Blade {
+    public func asBlades() -> [Blade] { self }
+}
+
+extension BladesBuilder {
+    static func buildEither(first: BladesConvertible) -> BladesConvertible {
+        first
+    }
+
+    static func buildEither(second: BladesConvertible) -> BladesConvertible {
+        second
     }
 }

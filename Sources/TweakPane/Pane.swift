@@ -30,7 +30,7 @@ public struct Pane: View {
 }
 
 public extension Pane {
-    init(@BladeBuilder _ content: () -> [Blade]) {
+    init(@BladesBuilder _ content: () -> [Blade]) {
         blades = content()
     }
 }

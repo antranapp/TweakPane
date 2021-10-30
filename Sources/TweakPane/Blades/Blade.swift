@@ -5,9 +5,17 @@
 import Foundation
 import SwiftUI
 
-public protocol Blade {
+public protocol Blade: BladesConvertible {
     var name: String { get }
     func render() -> AnyView
+}
+
+public extension Blade {
+    func asBlades() -> [Blade] { [self] }
+}
+
+public protocol BladesConvertible {
+    func asBlades() -> [Blade]
 }
 
 public struct FolderBlade: Blade {
@@ -15,7 +23,7 @@ public struct FolderBlade: Blade {
 
     let blades: [Blade]
 
-    public init(_ name: String, @BladeBuilder _ blades: @escaping () -> [Blade]) {
+    public init(_ name: String, @BladesBuilder _ blades: @escaping () -> [Blade]) {
         self.name = name
         self.blades = blades()
     }

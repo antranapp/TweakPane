@@ -22,6 +22,7 @@
 		D726FC882724C29F00D5089E /* PerfectBrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D726FC872724C29F00D5089E /* PerfectBrandViewModel.swift */; };
 		D726FC8B2724C78A00D5089E /* PagerTabStripView in Frameworks */ = {isa = PBXBuildFile; productRef = D726FC8A2724C78A00D5089E /* PagerTabStripView */; };
 		D7292BB42725445900A943B0 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7292BB32725445900A943B0 /* Background.swift */; };
+		D72EBAD8272DFFD300EB9664 /* ConditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72EBAD7272DFFD300EB9664 /* ConditionalView.swift */; };
 		D73B5892272614A200207B6F /* WatermarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B5891272614A200207B6F /* WatermarkView.swift */; };
 		D73B5894272614CA00207B6F /* Watermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B5893272614CA00207B6F /* Watermark.swift */; };
 		D73FB3262728B2B700B941BE /* FileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73FB3252728B2B700B941BE /* FileProvider.swift */; };
@@ -60,6 +61,7 @@
 		D726FC852724C27C00D5089E /* PerfectBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectBrandView.swift; sourceTree = "<group>"; };
 		D726FC872724C29F00D5089E /* PerfectBrandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectBrandViewModel.swift; sourceTree = "<group>"; };
 		D7292BB32725445900A943B0 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		D72EBAD7272DFFD300EB9664 /* ConditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalView.swift; sourceTree = "<group>"; };
 		D73B5891272614A200207B6F /* WatermarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkView.swift; sourceTree = "<group>"; };
 		D73B5893272614CA00207B6F /* Watermark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watermark.swift; sourceTree = "<group>"; };
 		D73FB3252728B2B700B941BE /* FileProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProvider.swift; sourceTree = "<group>"; };
@@ -194,6 +196,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D72EBAD6272DFFC900EB9664 /* Conditional */ = {
+			isa = PBXGroup;
+			children = (
+				D72EBAD7272DFFD300EB9664 /* ConditionalView.swift */,
+			);
+			path = Conditional;
+			sourceTree = "<group>";
+		};
 		D73B58902726149500207B6F /* Watermark */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +286,7 @@
 		D78283F22720F6BB00CC059C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				D72EBAD6272DFFC900EB9664 /* Conditional */,
 				D726FC842724C25900D5089E /* PerfectBrand */,
 				D70E82EA272120CB008F7130 /* Simple */,
 				D78283F42720F6CC00CC059C /* Photo */,
@@ -399,6 +410,7 @@
 				D73B5892272614A200207B6F /* WatermarkView.swift in Sources */,
 				D7046CA2272B6CCB0064427E /* PreviewView.swift in Sources */,
 				D70E82EC272120CB008F7130 /* SimpleView.swift in Sources */,
+				D72EBAD8272DFFD300EB9664 /* ConditionalView.swift in Sources */,
 				D703C4792724FCFC005A1942 /* Configuration.swift in Sources */,
 				D78283E12720CB6200CC059C /* PhotoViewModel.swift in Sources */,
 				D726FC882724C29F00D5089E /* PerfectBrandViewModel.swift in Sources */,

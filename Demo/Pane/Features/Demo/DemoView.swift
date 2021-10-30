@@ -98,14 +98,14 @@ struct DemoView: View {
                                 binding: InputBinding($doubleSliderValue)
                             ),
                             InputBlade(
-                                name: "Int Stepper Input",
-                                option: .stepperInt(range: 0 ... 10),
-                                binding: InputBinding($intStepperValue)
-                            ),
-                            InputBlade(
                                 name: "Double Stepper Input",
                                 option: .stepperDouble(range: 0 ... 10),
                                 binding: InputBinding($doubleStepperValue)
+                            ),
+                            InputBlade(
+                                name: "Int Stepper Input",
+                                option: .stepperInt(range: 0 ... 10),
+                                binding: InputBinding($intStepperValue)
                             ),
                             InputBlade(
                                 name: "Date Input",

@@ -8,24 +8,29 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            PhotoView()
+            SimpleView()
                 .tabItem {
                     Image(systemName: "1.circle.fill")
+                    Text("Simple")
+                }
+            ConditionalView()
+                .tabItem {
+                    Image(systemName: "2.circle.fill")
+                    Text("Conditional")
+                }
+            PhotoView()
+                .tabItem {
+                    Image(systemName: "3.circle.fill")
                     Text("Photo")
                 }
             DemoView()
                 .tabItem {
-                    Image(systemName: "2.square.fill")
+                    Image(systemName: "4.square.fill")
                     Text("Demo")
-                }
-            SimpleView()
-                .tabItem {
-                    Image(systemName: "3.circle.fill")
-                    Text("Simple")
                 }
             PerfectBrandView()
                 .tabItem {
-                    Image(systemName: "4.circle.fill")
+                    Image(systemName: "5.circle.fill")
                     Text("Complex")
                 }
         }
