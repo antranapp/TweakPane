@@ -28,3 +28,9 @@ public struct Pane: View {
         PaneView(blades: blades)
     }
 }
+
+public extension Pane {
+    init(@BladeBuilder _ content: () -> [Blade]) {
+        blades = content()
+    }
+}

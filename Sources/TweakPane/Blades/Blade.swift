@@ -15,9 +15,9 @@ public struct FolderBlade: Blade {
 
     let blades: [Blade]
 
-    public init(_ name: String, blades: [Blade]) {
+    public init(_ name: String, @BladeBuilder _ blades: @escaping () -> [Blade]) {
         self.name = name
-        self.blades = blades
+        self.blades = blades()
     }
 
     @ViewBuilder

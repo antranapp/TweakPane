@@ -77,65 +77,63 @@ public struct PhotoView: View {
             maxHeight: .percentage(0.5)
         ) {
             ScrollView {
-                Pane([
+                Pane{
                     InputBlade(
                         name: "Resizing",
                         option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),
                         binding: InputBinding($viewModel.selectedResizingOption)
-                    ),
+                    )
                     
                     InputBlade(
                         name: "Aspect Ratio",
                         option: .options(PhotoViewModel.Constants.aspectRatioOptions, style: .segmented),
                         binding: InputBinding($viewModel.selectedAspectRatioOption)
-                    ),
+                    )
                     
                     InputBlade(
                         name: "Clipped",
                         binding: InputBinding($viewModel.clipped)
-                    ),
+                    )
                     
                     InputBlade(
                         name: "Border Color",
                         binding: InputBinding($viewModel.borderColor)
-                    ),
+                    )
                     
                     InputBlade(
                         name: "Border Width",
                         option: .stepperDouble(range: 2 ... 10),
                         binding: InputBinding($viewModel.borderWidth)
-                    ),
+                    )
                     
                     InputBlade(
                         name: "Rotation",
                         option: .slider(range: -180 ... 180),
                         binding: InputBinding($viewModel.rotationAngle)
-                    ),
-                    FolderBlade(
-                        "3D",
-                        blades: [
-                            InputBlade(
-                                name: "Rotation X",
-                                option: .slider(range: -180 ... 180),
-                                binding: InputBinding($viewModel.rotationX)
-                            ),
-                            
-                            InputBlade(
-                                name: "Rotation Y",
-                                option: .slider(range: -180 ... 180),
-                                binding: InputBinding($viewModel.rotationY)
-                            ),
-                            
-                            InputBlade(
-                                name: "Rotation Z",
-                                option: .slider(range: -180 ... 180),
-                                binding: InputBinding($viewModel.rotationZ)
-                            ),
-                        ]
-                    ),
-                ])
-                    .padding(.horizontal)
-                    .padding(.bottom, 100)
+                    )
+
+                    FolderBlade("3D") {
+                        InputBlade(
+                            name: "Rotation X",
+                            option: .slider(range: -180 ... 180),
+                            binding: InputBinding($viewModel.rotationX)
+                        )
+
+                        InputBlade(
+                            name: "Rotation Y",
+                            option: .slider(range: -180 ... 180),
+                            binding: InputBinding($viewModel.rotationY)
+                        )
+
+                        InputBlade(
+                            name: "Rotation Z",
+                            option: .slider(range: -180 ... 180),
+                            binding: InputBinding($viewModel.rotationZ)
+                        )
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 100)
             }
         }
     }
