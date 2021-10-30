@@ -39,9 +39,9 @@ struct SimpleView: View {
     var body: some View {
         VStack {
             Text(text)
-            Pane([
+            Pane {
                 InputBlade(name: "Text", binding: InputBinding($text))
-            ])
+            }
         }
     }
 }
