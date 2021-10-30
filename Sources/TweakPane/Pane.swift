@@ -8,10 +8,10 @@ import SwiftUI
 
 // Pane -> Blade -> Binding/Monitoring
 
-final class PaneSettings: ObservableObject {
-    static let shared = PaneSettings()
+public final class PaneSettings: ObservableObject {
+    public static let shared = PaneSettings()
 
-    @Published var showValue: Bool = false
+    @Published public var showValue: Bool = false
 
     private init() {}
 }

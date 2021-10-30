@@ -33,5 +33,11 @@ struct SimpleView: View {
             }
         }
         .padding()
+        .onAppear {
+            PaneSettings.shared.showValue = true
+        }
+        .onDisappear {
+            PaneSettings.shared.showValue = false
+        }
     }
 }
