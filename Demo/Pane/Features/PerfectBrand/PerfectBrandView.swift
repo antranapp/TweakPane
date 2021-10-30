@@ -52,7 +52,6 @@ public struct PerfectBrandView: View {
                                 }
                         }
                         .background(Color.white)
-                        .padding(.bottom, 20)
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
@@ -177,7 +176,8 @@ public struct PerfectBrandView: View {
                     binding: InputBinding($viewModel.configuration.border.color)
                 ),
             ])
-                .padding(20)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 100)
         }
     }
 
@@ -203,7 +203,8 @@ public struct PerfectBrandView: View {
                     binding: InputBinding($viewModel.configuration.perspective.rotationZ)
                 ),
             ])
-                .padding(20)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 100)
         }
     }
 
@@ -279,7 +280,8 @@ public struct PerfectBrandView: View {
                     binding: InputBinding($viewModel.configuration.background.size)
                 ),
             ])
-                .padding(20)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 100)
         }
     }
 
@@ -329,7 +331,8 @@ public struct PerfectBrandView: View {
                     ))
                 ),
             ])
-                .padding(20)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 80)
         }
     }
 }

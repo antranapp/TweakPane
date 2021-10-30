@@ -23,6 +23,17 @@ struct ContentView: View {
                     Image(systemName: "3.circle.fill")
                     Text("Simple")
                 }
+            PerfectBrandView()
+                .tabItem {
+                    Image(systemName: "4.circle.fill")
+                    Text("Complex")
+                }
+        }
+        .onAppear {
+            if #available(iOS 15.0, *) {
+                let appearance = UITabBarAppearance()
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+            }
         }
     }
 }
