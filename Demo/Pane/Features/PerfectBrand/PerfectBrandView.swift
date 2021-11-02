@@ -17,10 +17,11 @@ public struct PerfectBrandView: View {
     public var body: some View {
         NavigationView {
             switch viewModel.state {
-            case .intializing:
-                EmptyView()
             case .loading:
                 Text("Loading ...")
+                    .onAppear {
+                        viewModel.loadImage()
+                    }
             case .empty:
                 Image("placeholder")
             case .error(let error):

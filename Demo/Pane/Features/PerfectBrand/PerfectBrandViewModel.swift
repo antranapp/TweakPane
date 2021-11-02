@@ -8,8 +8,12 @@ import NotificationBannerSwift
 import UIKit.UIImage
 
 final class PerfectBrandViewModel: ObservableObject {
+
+    enum Constants {
+        static let defaultPhoto = UIImage(named: "sample")!
+    }
+
     enum State {
-        case intializing
         case loading
         case empty
         case hasData(UIImage)
@@ -33,15 +37,10 @@ final class PerfectBrandViewModel: ObservableObject {
         case enterFolderName(id: String, image: UIImage, configuration: Configuration)
     }
 
-    enum Constants {
-        static let aspectRatioOptions = ["No", "Fit", "Fill"]
-    }
-
-    @Published private(set) var state: State = .intializing
+    @Published private(set) var state: State = .loading
 
     @Published var configuration: Configuration = .default
 
-    @Published var selectedSourceIndex = 0
     @Published var imageURLString: String = ""
     @Published var message: NotificationBanner?
 
@@ -61,17 +60,11 @@ final class PerfectBrandViewModel: ObservableObject {
     let fileProvider = FileProvider("configurations")
     private var cancellables = Set<AnyCancellable>()
 
-    init() {
-        $selectedSourceIndex
-            .sink { [weak self] value in
-                if value == 0 {
-                    let image = UIImage(named: "sample")!
-                    self?.state = .hasData(image)
-                }
-            }
-            .store(in: &cancellables)
-    }
 
+    func loadImage() {
+        state = .hasData(Constants.defaultPhoto)
+    }
+    
     func loadRemoteImage() {
         guard let url = URL(string: imageURLString) else { return }
         state = .loading
