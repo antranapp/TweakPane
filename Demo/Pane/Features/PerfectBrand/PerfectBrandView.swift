@@ -189,7 +189,7 @@ public struct PerfectBrandView: View {
                 
                 InputBlade(
                     name: "Border Width",
-                    option: .slider(range: 0 ... 20),
+                    option: .slider(range: 0 ... 20, step: 0.5),
                     binding: InputBinding($viewModel.configuration.border.width)
                 ),
                 

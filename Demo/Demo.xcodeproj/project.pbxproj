@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F26FFB127349167005CC980 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F26FFB027349167005CC980 /* SliderView.swift */; };
+		7F26FFB3273491A6005CC980 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F26FFB2273491A6005CC980 /* SegmentView.swift */; };
 		7F7B9A9C271BF3FA00522C99 /* PaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B9A9B271BF3FA00522C99 /* PaneApp.swift */; };
 		7F7B9A9E271BF3FA00522C99 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B9A9D271BF3FA00522C99 /* DemoView.swift */; };
 		7F7B9AA0271BF3FC00522C99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7B9A9F271BF3FC00522C99 /* Assets.xcassets */; };
@@ -40,13 +42,15 @@
 		D78283E12720CB6200CC059C /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283E02720CB6200CC059C /* PhotoViewModel.swift */; };
 		D78283E42720CC9C00CC059C /* View+Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283E32720CC9C00CC059C /* View+Conditions.swift */; };
 		D78283E62720D0BE00CC059C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283E52720D0BE00CC059C /* ContentView.swift */; };
-		D78283ED2720D88700CC059C /* OtherViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283E82720D88700CC059C /* OtherViews.swift */; };
+		D78283ED2720D88700CC059C /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283E82720D88700CC059C /* ToggleView.swift */; };
 		D78283EE2720D88700CC059C /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283E92720D88700CC059C /* ColorPickerView.swift */; };
 		D78283EF2720D88700CC059C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283EA2720D88700CC059C /* DatePickerView.swift */; };
 		D78283F02720D88700CC059C /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78283EB2720D88700CC059C /* TextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F26FFB027349167005CC980 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		7F26FFB2273491A6005CC980 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		7F7B9A98271BF3FA00522C99 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7B9A9B271BF3FA00522C99 /* PaneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneApp.swift; sourceTree = "<group>"; };
 		7F7B9A9D271BF3FA00522C99 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
@@ -75,7 +79,7 @@
 		D78283E02720CB6200CC059C /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		D78283E32720CC9C00CC059C /* View+Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Conditions.swift"; sourceTree = "<group>"; };
 		D78283E52720D0BE00CC059C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D78283E82720D88700CC059C /* OtherViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViews.swift; sourceTree = "<group>"; };
+		D78283E82720D88700CC059C /* ToggleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
 		D78283E92720D88700CC059C /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		D78283EA2720D88700CC059C /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		D78283EB2720D88700CC059C /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -103,9 +107,11 @@
 			children = (
 				D78283E92720D88700CC059C /* ColorPickerView.swift */,
 				D78283EA2720D88700CC059C /* DatePickerView.swift */,
-				D78283E82720D88700CC059C /* OtherViews.swift */,
+				D78283E82720D88700CC059C /* ToggleView.swift */,
 				D78283EB2720D88700CC059C /* TextView.swift */,
 				D70E82E8272107BA008F7130 /* StepperView.swift */,
+				7F26FFB027349167005CC980 /* SliderView.swift */,
+				7F26FFB2273491A6005CC980 /* SegmentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				D73B5894272614CA00207B6F /* Watermark.swift in Sources */,
 				D78283F02720D88700CC059C /* TextView.swift in Sources */,
 				D7292BB42725445900A943B0 /* Background.swift in Sources */,
+				7F26FFB127349167005CC980 /* SliderView.swift in Sources */,
 				7F7B9A9E271BF3FA00522C99 /* DemoView.swift in Sources */,
 				D73B5892272614A200207B6F /* WatermarkView.swift in Sources */,
 				D7046CA2272B6CCB0064427E /* PreviewView.swift in Sources */,
@@ -414,8 +421,9 @@
 				D703C4792724FCFC005A1942 /* Configuration.swift in Sources */,
 				D78283E12720CB6200CC059C /* PhotoViewModel.swift in Sources */,
 				D726FC882724C29F00D5089E /* PerfectBrandViewModel.swift in Sources */,
+				7F26FFB3273491A6005CC980 /* SegmentView.swift in Sources */,
 				D73FB3302728B80F00B941BE /* ConfigurationManagementViewModel.swift in Sources */,
-				D78283ED2720D88700CC059C /* OtherViews.swift in Sources */,
+				D78283ED2720D88700CC059C /* ToggleView.swift in Sources */,
 				D78283E62720D0BE00CC059C /* ContentView.swift in Sources */,
 				D78283EE2720D88700CC059C /* ColorPickerView.swift in Sources */,
 				D73FB32F2728B80F00B941BE /* ConfigurationManagementView.swift in Sources */,

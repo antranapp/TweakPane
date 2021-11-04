@@ -19,11 +19,12 @@ struct ToogleView: View {
 struct StepperView<Value>: View where Value: Comparable & Strideable {
     let name: String
     let range: ClosedRange<Value>
+    let step: Value.Stride
 
     @Binding var stepValue: Value
 
     var body: some View {
-        Stepper(value: $stepValue, in: range) {
+        Stepper(value: $stepValue, in: range, step: step) {
             Text(name)
         }
     }
@@ -32,12 +33,13 @@ struct StepperView<Value>: View where Value: Comparable & Strideable {
 struct SliderView<Value>: View where Value: BinaryFloatingPoint, Value.Stride: BinaryFloatingPoint {
     let name: String
     let range: ClosedRange<Value>
+    let step: Value.Stride
 
     @Binding var sliderValue: Value
 
     var body: some View {
         VStack(alignment: .leading) {
-            Slider(value: $sliderValue, in: range)
+            Slider(value: $sliderValue, in: range, step: step)
         }
     }
 }
