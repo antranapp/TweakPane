@@ -9,6 +9,8 @@ import TweakPane
 struct SimpleView: View {
     @State private var text1: String = ""
     @State private var text2: String = ""
+
+    @State private var showingAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -31,6 +33,24 @@ struct SimpleView: View {
                 InputBlade(name: "Text 1", binding: InputBinding($text1))
                 InputBlade(name: "Text 2", binding: InputBinding($text2))
             }
+
+            Divider()
+
+            Pane {
+                UIBlade(name: "Button") {
+                    Button(
+                        action: {
+                            showingAlert.toggle()
+                        },
+                        label: {
+                            Text("Button")
+                        }
+                    )
+                }
+            }
+        }
+        .sheet(isPresented: $showingAlert) {
+            Text("Button tapped")
         }
         .padding()
         .onAppear {
