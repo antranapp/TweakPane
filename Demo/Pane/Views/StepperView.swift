@@ -13,7 +13,7 @@ struct StepperView<Value>: View where Value: Comparable & Strideable {
 
     var body: some View {
         Stepper(value: $stepValue, in: range) {
-            Text(name)
+            Text(String(describing: stepValue))
         }
     }
 }
