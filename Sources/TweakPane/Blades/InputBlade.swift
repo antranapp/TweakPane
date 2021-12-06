@@ -15,8 +15,8 @@ public enum InputBladeOption {
     case options(_ options: [String], style: Style)
     case optionsImage(_ options: [Image])
     case optionsCustomViews(count: Int, viewBuilder: (Int) -> AnyView)
-    case stepperInt(range: ClosedRange<Int>, step: Int = 1)
-    case stepperDouble(range: ClosedRange<Double>, step: Double = 1)
+    case stepperInt(range: ClosedRange<Int>, step: Int = 1, formatter: (Int) -> String = { String(describing: $0) })
+    case stepperDouble(range: ClosedRange<Double>, step: Double = 1, formatter: (Double) -> String = { String(describing: $0) })
     case slider(range: ClosedRange<Double>, step: Double = 1)
 }
 
@@ -85,7 +85,7 @@ public struct InputBlade: Blade {
                     )
                 )
 
-            case .stepperInt(let range, let step):
+            case .stepperInt(let range, let step, let formatter):
                 StepperView(
                     name: name,
                     range: range,
@@ -97,10 +97,11 @@ public struct InputBlade: Blade {
                         set: { newValue in
                             binding.parameter = newValue
                         }
-                    )
+                    ),
+                    formatter: formatter
                 )
 
-            case .stepperDouble(let range, let step):
+            case .stepperDouble(let range, let step, let formatter):
                 StepperView(
                     name: name,
                     range: range,
@@ -112,7 +113,8 @@ public struct InputBlade: Blade {
                         set: { newValue in
                             binding.parameter = newValue
                         }
-                    )
+                    ),
+                    formatter: formatter
                 )
 
             case .slider(let range, let step):

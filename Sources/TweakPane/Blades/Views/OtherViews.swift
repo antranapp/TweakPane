@@ -22,10 +22,11 @@ struct StepperView<Value>: View where Value: Comparable & Strideable {
     let step: Value.Stride
 
     @Binding var stepValue: Value
+    let formatter: (Value) -> String
 
     var body: some View {
         Stepper(value: $stepValue, in: range, step: step) {
-            Text(String(describing: stepValue))
+            Text(formatter(stepValue))
         }
     }
 }

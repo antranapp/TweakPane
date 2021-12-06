@@ -99,7 +99,13 @@ struct DemoView: View {
                             ),
                             InputBlade(
                                 name: "Double Stepper Input",
-                                option: .stepperDouble(range: 0 ... 10),
+                                option: .stepperDouble(
+                                    range: 0 ... 10,
+                                    step: 0.05,
+                                    formatter: { value in
+                                        return String(format: "%.2f", value)
+                                    }
+                                ),
                                 binding: InputBinding($doubleStepperValue)
                             ),
                             InputBlade(
