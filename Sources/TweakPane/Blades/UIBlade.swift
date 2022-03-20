@@ -9,11 +9,10 @@ import Foundation
 import SwiftUI
 
 public struct UIBlade<Content: View>: Blade {
-    public let name: String
+    public let name: String? = nil
     public let content: () -> Content
 
-    public init(name: String, @ViewBuilder content: @escaping () -> Content) {
-        self.name = name
+    public init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
     }
 

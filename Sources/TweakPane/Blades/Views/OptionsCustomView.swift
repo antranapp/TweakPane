@@ -7,7 +7,7 @@ import SwiftUI
 
 struct OptionsCustomView<Content: View>: View {
     
-    let name: String
+    let name: String?
     let count: Int
     @ViewBuilder let viewBuilder: (Int) -> Content
     @Binding var selectedValue: Int

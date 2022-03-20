@@ -6,13 +6,13 @@ import Foundation
 import SwiftUI
 
 struct SegmentView<Value: Hashable & CustomStringConvertible>: View {
-    let name: String
+    let name: String?
     var values: [Value]
     let style: InputBladeOption.Style
     @Binding var selectedValue: Value
 
     var body: some View {
-        Picker(name, selection: $selectedValue) {
+        Picker(name ?? "Picker", selection: $selectedValue) {
             ForEach(values, id: \.self) {
                 Text($0.description)
             }

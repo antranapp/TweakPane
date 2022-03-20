@@ -30,7 +30,7 @@ struct SimpleView: View {
             Divider()
 
             Pane {
-                TextBlade(name: "Constant", title: "Constant String")
+                TextBlade("Constant String")
                 InputBlade(name: "Text 1", binding: InputBinding($text1))
                 InputBlade(name: "Text 2", binding: InputBinding($text2))
             }
@@ -38,7 +38,7 @@ struct SimpleView: View {
             Divider()
 
             Pane {
-                UIBlade(name: "Button") {
+                UIBlade {
                     Button(
                         action: {
                             showingAlert.toggle()

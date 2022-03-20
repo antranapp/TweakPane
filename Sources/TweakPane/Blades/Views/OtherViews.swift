@@ -17,7 +17,7 @@ struct ToogleView: View {
 }
 
 struct StepperView<Value>: View where Value: Comparable & Strideable {
-    let name: String
+    let name: String?
     let range: ClosedRange<Value>
     let step: Value.Stride
 
@@ -32,7 +32,7 @@ struct StepperView<Value>: View where Value: Comparable & Strideable {
 }
 
 struct SliderView<Value>: View where Value: BinaryFloatingPoint, Value.Stride: BinaryFloatingPoint {
-    let name: String
+    let name: String?
     let range: ClosedRange<Value>
     let step: Value.Stride
 
