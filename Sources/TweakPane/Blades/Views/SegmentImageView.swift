@@ -6,12 +6,12 @@ import Foundation
 import SwiftUI
 
 struct SegmentImageView: View {
-    let name: String
+    let name: String?
     var values: [Image]
     @Binding var selectedValue: Int
 
     var body: some View {
-        Picker(name, selection: $selectedValue) {
+        Picker(name ?? "Picker", selection: $selectedValue) {
             ForEach(values.indices, id: \.self) {
                 values[$0]
             }

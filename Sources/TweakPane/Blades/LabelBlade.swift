@@ -9,11 +9,10 @@ import Foundation
 import SwiftUI
 
 public struct TextBlade<Content: StringProtocol>: Blade {
-    public let name: String
+    public let name: String? = nil
     public let title: () -> Content
 
-    public init(name: String, title: @autoclosure @escaping () -> Content) {
-        self.name = name
+    public init(_ title: @autoclosure @escaping () -> Content) {
         self.title = title
     }
 

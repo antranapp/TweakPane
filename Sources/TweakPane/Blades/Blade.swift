@@ -6,8 +6,14 @@ import Foundation
 import SwiftUI
 
 public protocol Blade: BladesConvertible {
-    var name: String { get }
+    var name: String? { get }
     func render() -> AnyView
+}
+
+extension Blade {
+    var name: String? {
+        nil
+    }
 }
 
 public extension Blade {
@@ -19,11 +25,11 @@ public protocol BladesConvertible {
 }
 
 public struct FolderBlade: Blade {
-    public var name: String
+    public var name: String?
 
     let blades: [Blade]
 
-    public init(_ name: String, @BladesBuilder _ blades: @escaping () -> [Blade]) {
+    public init(_ name: String? = nil, @BladesBuilder _ blades: @escaping () -> [Blade]) {
         self.name = name
         self.blades = blades()
     }

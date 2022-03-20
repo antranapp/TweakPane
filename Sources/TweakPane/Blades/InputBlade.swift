@@ -21,7 +21,7 @@ public enum InputBladeOption {
 }
 
 public struct InputBlade: Blade {
-    public let name: String
+    public let name: String?
     let option: InputBladeOption
     var binding: InputBinding
 
@@ -143,7 +143,7 @@ public struct InputBlade: Blade {
     private func renderDefault() -> some View {
         if binding.parameter is Bool {
             ToogleView(
-                name: name,
+                name: name!,
                 value: Binding(
                     get: {
                         binding.parameter as! Bool
@@ -157,7 +157,7 @@ public struct InputBlade: Blade {
 
         if binding.parameter is String {
             TextView(
-                name: name,
+                name: name!,
                 text: Binding(
                     get: {
                         binding.parameter as! String
@@ -171,7 +171,7 @@ public struct InputBlade: Blade {
 
         if binding.parameter is Date {
             DatePickerView(
-                name: name,
+                name: name!,
                 date: Binding(
                     get: {
                         binding.parameter as! Date
@@ -185,7 +185,7 @@ public struct InputBlade: Blade {
 
         if binding.parameter is Color {
             ColorPickerView(
-                name: name,
+                name: name!,
                 color: Binding(
                     get: {
                         binding.parameter as! Color

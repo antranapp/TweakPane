@@ -6,11 +6,11 @@ import Foundation
 import SwiftUI
 
 public struct MonitoringBlade: Blade {
-    public var name: String
+    public var name: String?
     let binding: MonitorBinding
 
     public init(
-        name: String,
+        name: String?,
         binding: MonitorBinding
     ) {
         self.name = name
