@@ -174,30 +174,30 @@ public struct PerfectBrandView: View {
     @ViewBuilder
     private var borderPane: some View {
         ScrollView {
-            Pane([
+            Pane {
                 InputBlade(
                     name: "Inset Padding",
                     option: .slider(range: 0 ... 100),
                     binding: InputBinding($viewModel.configuration.padding)
-                ),
+                )
                 
                 InputBlade(
                     name: "Border Radius",
                     option: .slider(range: 0 ... 20),
                     binding: InputBinding($viewModel.configuration.border.radius)
-                ),
+                )
                 
                 InputBlade(
                     name: "Border Width",
                     option: .slider(range: 0 ... 20, step: 0.5),
                     binding: InputBinding($viewModel.configuration.border.width)
-                ),
+                )
                 
                 InputBlade(
                     name: "Border Color",
                     binding: InputBinding($viewModel.configuration.border.color)
-                ),
-            ])
+                )
+            }
             .padding(.horizontal, 20)
             .padding(.bottom, 100)
         }
@@ -206,25 +206,25 @@ public struct PerfectBrandView: View {
     @ViewBuilder
     private var perspectivePane: some View {
         ScrollView {
-            Pane([
+            Pane {
                 InputBlade(
                     name: "Rotation X",
                     option: .slider(range: -180 ... 180),
                     binding: InputBinding($viewModel.configuration.perspective.rotationX)
-                ),
+                )
                 
                 InputBlade(
                     name: "Rotation Y",
                     option: .slider(range: -180 ... 180),
                     binding: InputBinding($viewModel.configuration.perspective.rotationY)
-                ),
+                )
                 
                 InputBlade(
                     name: "Rotation Z",
                     option: .slider(range: -180 ... 180),
                     binding: InputBinding($viewModel.configuration.perspective.rotationZ)
-                ),
-            ])
+                )
+            }
             .padding(.horizontal, 20)
             .padding(.bottom, 100)
         }
@@ -233,7 +233,7 @@ public struct PerfectBrandView: View {
     @ViewBuilder
     private var backgroundPane: some View {
         ScrollView {
-            Pane([
+            Pane {
                 InputBlade(
                     name: "Background",
                     option: .optionsCustomViews(
@@ -295,13 +295,13 @@ public struct PerfectBrandView: View {
                             }
                         }
                     ))
-                ),
+                )
                 InputBlade(
                     name: "Size",
                     option: .slider(range: 10 ... 100),
                     binding: InputBinding($viewModel.configuration.background.size)
-                ),
-            ])
+                )
+            }
             .padding(.horizontal, 20)
             .padding(.bottom, 100)
         }
@@ -310,11 +310,11 @@ public struct PerfectBrandView: View {
     @ViewBuilder
     private var watermarkPane: some View {
         ScrollView {
-            Pane([
+            Pane {
                 InputBlade(
                     name: "Text",
                     binding: InputBinding($viewModel.configuration.watermark.text)
-                ),
+                )
                 InputBlade(
                     name: "Position",
                     option: .optionsImage([
@@ -351,8 +351,8 @@ public struct PerfectBrandView: View {
                             }
                         }
                     ))
-                ),
-            ])
+                )
+            }
             .padding(.horizontal, 20)
             .padding(.bottom, 80)
         }

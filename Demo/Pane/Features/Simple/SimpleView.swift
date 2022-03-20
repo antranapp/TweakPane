@@ -30,6 +30,7 @@ struct SimpleView: View {
             Divider()
 
             Pane {
+                TextBlade(name: "Constant", title: "Constant String")
                 InputBlade(name: "Text 1", binding: InputBinding($text1))
                 InputBlade(name: "Text 2", binding: InputBinding($text2))
             }
