@@ -20,7 +20,7 @@ public struct Pane: View {
     @StateObject private var settings = PaneSettings.shared
     public var blades: [Blade]
 
-    public init(_ blades: [Blade]) {
+    init(_ blades: [Blade]) {
         self.blades = blades
     }
 

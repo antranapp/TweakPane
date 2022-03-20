@@ -91,12 +91,12 @@ struct DemoView: View {
                 style: .standard,
                 content: {
                     ScrollView {
-                        Pane([
+                        Pane {
                             InputBlade(
                                 name: "Double Slider Input",
                                 option: .slider(range: 0 ... 10),
                                 binding: InputBinding($doubleSliderValue)
-                            ),
+                            )
                             InputBlade(
                                 name: "Double Stepper Input",
                                 option: .stepperDouble(
@@ -107,37 +107,36 @@ struct DemoView: View {
                                     }
                                 ),
                                 binding: InputBinding($doubleStepperValue)
-                            ),
+                            )
                             InputBlade(
                                 name: "Int Stepper Input",
                                 option: .stepperInt(range: 0 ... 10),
                                 binding: InputBinding($intStepperValue)
-                            ),
+                            )
                             InputBlade(
                                 name: "Date Input",
                                 binding: InputBinding($dateValue)
-                            ),
+                            )
                             InputBlade(
                                 name: "Picker Input",
                                 option: .options(segmentValues, style: .segmented),
                                 binding: InputBinding($selectedSegmentValue)
-                            ),
+                            )
                             InputBlade(
                                 name: "Text Input",
                                 binding: InputBinding($textValue)
-                            ),
+                            )
                             MonitoringBlade(
                                 name: "Text Monitor",
                                 binding: MonitorBinding($textValue)
-                            ),
+                            )
                             InputBlade(
                                 name: "Bool Input",
                                 binding: InputBinding($boolValue)
-                            ),
-                        ])
-                            .padding(.horizontal)
-                            .padding(.bottom, 100)
-
+                            )
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 100)
                     }
                 }
             )
