@@ -5,6 +5,7 @@
 import Foundation
 import SwiftUI
 
+// TODO: Change to static function so that we can use generic 
 public enum InputBladeOption {
     public enum Style {
         case segmented
@@ -204,4 +205,16 @@ public struct InputBlade: Blade {
         AnyView(renderInternally())
     }
 
+}
+
+// TODO: Define BindableType and make this initialiser a generic function.
+extension InputBlade {
+    init(
+        name: String,
+        option: InputBladeOption = .default,
+        binding: Binding<Bool>
+    ) {
+        let inputBinding = InputBinding(binding)
+        self.init(name: name, option: option, binding: inputBinding)
+    }
 }

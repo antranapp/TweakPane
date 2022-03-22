@@ -18,7 +18,7 @@ public final class PaneSettings: ObservableObject {
 
 public struct Pane: View {
     @StateObject private var settings = PaneSettings.shared
-    public var blades: [Blade]
+    var blades: [Blade]
 
     init(_ blades: [Blade]) {
         self.blades = blades

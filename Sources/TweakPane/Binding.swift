@@ -5,6 +5,9 @@
 import Foundation
 import SwiftUI
 
+//protocol BindableType {}
+//extension String: BindableType {}
+
 public struct InputBinding {
     @Binding var parameter: Parameter
 }
