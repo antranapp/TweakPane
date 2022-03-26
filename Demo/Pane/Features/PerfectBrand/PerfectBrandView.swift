@@ -9,7 +9,6 @@ import TweakPane
 
 public struct PerfectBrandView: View {
 
-
     @StateObject private var viewModel = PerfectBrandViewModel()
 
     public init() {}
@@ -257,12 +256,12 @@ public struct PerfectBrandView: View {
                                         size: 5,
                                         color: viewModel.configuration.background.color
                                     )
-                                        .frame(width: 50, height: 50)
-                                        .cornerRadius(13)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 13)
-                                                .stroke(Color.gray, lineWidth: 2)
-                                        )
+                                    .frame(width: 50, height: 50)
+                                    .cornerRadius(13)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 13)
+                                            .stroke(Color.gray, lineWidth: 2)
+                                    )
                                 )
                             default:
                                 assertionFailure("invalid index")

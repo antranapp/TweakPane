@@ -3,8 +3,8 @@
 //
 
 import Combine
-import SwiftUI
 import NotificationBannerSwift
+import SwiftUI
 import UIKit.UIImage
 
 final class PerfectBrandViewModel: ObservableObject {
@@ -27,7 +27,7 @@ final class PerfectBrandViewModel: ObservableObject {
                 return id
             case .configurations(let id):
                 return id
-            case .enterFolderName(let id, _ , _):
+            case .enterFolderName(let id, _, _):
                 return id
             }
         }
@@ -59,7 +59,6 @@ final class PerfectBrandViewModel: ObservableObject {
 
     let fileProvider = FileProvider("configurations")
     private var cancellables = Set<AnyCancellable>()
-
 
     func loadImage() {
         state = .hasData(Constants.defaultPhoto)
@@ -107,20 +106,19 @@ final class PerfectBrandViewModel: ObservableObject {
         fileProvider
             .save(configuration: configuration, image: image, in: folderName)
             .receive(on: DispatchQueue.main)
-            .sink (
-                receiveCompletion:
-                    { [weak self] result in
-                        switch result {
-                        case .finished:
-                            break
-                        case .failure(let error):
-                            self?.message = NotificationBanner(
-                                title: "Error!",
-                                subtitle: error.localizedDescription,
-                                style: .success
-                            )
-                        }
-                    },
+            .sink(
+                receiveCompletion: { [weak self] result in
+                    switch result {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        self?.message = NotificationBanner(
+                            title: "Error!",
+                            subtitle: error.localizedDescription,
+                            style: .success
+                        )
+                    }
+                },
                 receiveValue: { [weak self] in
                     self?.message = NotificationBanner(
                         title: "Suceed!",
@@ -136,7 +134,6 @@ final class PerfectBrandViewModel: ObservableObject {
         configuration = .default
         state = .hasData(UIImage(named: "sample")!)
     }
-
 
 }
 

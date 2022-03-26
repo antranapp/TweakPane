@@ -1,8 +1,5 @@
 //
-//  SegmentView.swift
-//  Demo
-//
-//  Created by An Tran on 5/11/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
@@ -22,4 +19,3 @@ struct SegmentView<Value: Hashable & CustomStringConvertible>: View {
         .pickerStyle(MenuPickerStyle())
     }
 }
-

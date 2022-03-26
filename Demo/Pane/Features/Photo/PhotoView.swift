@@ -77,7 +77,7 @@ public struct PhotoView: View {
             maxHeight: .percentage(0.5)
         ) {
             ScrollView {
-                Pane{
+                Pane {
                     InputBlade(
                         name: "Resizing",
                         option: .options(PhotoViewModel.Constants.resizingOptions, style: .segmented),

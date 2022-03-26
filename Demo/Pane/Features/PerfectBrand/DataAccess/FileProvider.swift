@@ -36,7 +36,7 @@ public final class FileProvider {
             return Just([]).setFailureType(to: FileProviderError.self).eraseToAnyPublisher()
         }
 
-        return Just(configurationFolder.files.filter{ $0.extension == ".json" }.compactMap { file in
+        return Just(configurationFolder.files.filter { $0.extension == ".json" }.compactMap { file in
             return ConfigurationFile(
                 path: file.path,
                 name: file.name,
@@ -52,8 +52,8 @@ public final class FileProvider {
         try? folder?.delete()
 
         return save(configuration, in: folderName, with: "configuration.json")
-                .flatMap { self.saveImage(image, in: folderName, with: "image.png") }
-                .eraseToAnyPublisher()
+            .flatMap { self.saveImage(image, in: folderName, with: "image.png") }
+            .eraseToAnyPublisher()
     }
 
     func save<T: Encodable>(_ object: T, in folderName: String, with fileName: String) -> AnyPublisher<Void, FileProviderError> {
@@ -81,7 +81,7 @@ public final class FileProvider {
             folderOrNil = try? rootFolder?.subfolder(named: folderName)
         }
 
-        guard let folder = folderOrNil else  {
+        guard let folder = folderOrNil else {
             return Fail(error: FileProviderError.fileSystemFailure).eraseToAnyPublisher()
         }
 

@@ -1,15 +1,12 @@
 //
-//  File.swift
-//  
-//
-//  Created by Binh An Tran on 31/10/21.
+// Copyright © 2021 An Tran. All rights reserved.
 //
 
 import Foundation
 
 @resultBuilder
-public struct BladesBuilder {
-    static func buildBlock()-> [Blade] {
+public enum BladesBuilder {
+    static func buildBlock() -> [Blade] {
         []
     }
 }
@@ -20,8 +17,8 @@ public extension BladesBuilder {
     }
 }
 
-extension BladesBuilder {
-    public static func buildOptional(_ component: [Blade]?) -> [Blade] {
+public extension BladesBuilder {
+    static func buildOptional(_ component: [Blade]?) -> [Blade] {
         component ?? []
     }
 }

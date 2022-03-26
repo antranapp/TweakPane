@@ -4,8 +4,8 @@
 
 import Combine
 import Foundation
-import SwiftUI
 import NotificationBannerSwift
+import SwiftUI
 
 struct ConfigurationManagementView: View {
     @Environment(\.presentationMode) private var presentationMode
