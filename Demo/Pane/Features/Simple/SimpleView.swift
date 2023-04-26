@@ -9,7 +9,7 @@ import TweakPane
 struct SimpleView: View {
     @State private var text1: String = ""
     @State private var text2: String = ""
-
+    
     @State private var showingAlert: Bool = false
     
     var body: some View {
@@ -26,17 +26,17 @@ struct SimpleView: View {
                     Spacer()
                 }
             }
-
+            
             Divider()
-
+            
             Pane {
                 TextBlade("Constant String")
                 InputBlade(name: "Text 1", binding: InputBinding($text1))
                 InputBlade(name: "Text 2", binding: InputBinding($text2))
             }
-
+            
             Divider()
-
+            
             Pane {
                 UIBlade {
                     Button(
@@ -50,9 +50,15 @@ struct SimpleView: View {
                 }
             }
         }
+        #if os(macOS)
+        .alert("Button tapped", isPresented: $showingAlert) {
+            Button("OK", role: .cancel) { }
+        }
+        #elseif os(iOS)
         .sheet(isPresented: $showingAlert) {
             Text("Button tapped")
         }
+        #endif
         .padding()
         .onAppear {
             PaneSettings.shared.showValue = true

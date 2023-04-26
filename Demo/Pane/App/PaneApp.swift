@@ -8,7 +8,11 @@ import SwiftUI
 struct PaneApp: App {
     var body: some Scene {
         WindowGroup {
+            #if os(iOS)
             ContentView()
+            #elseif os(macOS)
+            ContentViewMac()
+            #endif
         }
     }
 }
