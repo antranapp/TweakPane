@@ -10,7 +10,7 @@ jobs:
     name: Build and Test
 
     # See available software: https://github.com/actions/virtual-environments/blob/master/images/macos/macos-11-Readme.md
-    runs-on: macos-11
+    runs-on: macos-12
 
     steps:
       - name: Cancel Previous Runs
@@ -21,15 +21,15 @@ jobs:
       - uses: actions/checkout@v2
       - name: Prepare Xcode
         run: |
-          sudo xcode-select --switch /Applications/Xcode_13.0.app
+          sudo xcode-select --switch /Applications/Xcode_14.2.app
           xcodebuild -version
           swift --version
 
-      - name: Build for testing
-        run: xcodebuild build-for-testing -workspace TweakPane.xcworkspace -scheme "Pane" -destination "name=iPhone 13 Pro"
+      - name: Install xcbeautify
+        run: brew install xcbeautify
 
-      - name: Boot simulator # Doing this as a separate step for some reason considerably speeds up tests
-        run: xcrun simctl boot "iPhone 13 Pro"
+      - name: Run tests iOS
+        run: set -o pipefail && xcodebuild test -workspace TweakPane.xcworkspace -scheme "Demo-iOS" -destination "name=iPhone 13 Pro" | xcbeautify
 
-      - name: Run tests
-        run: xcodebuild test-without-building -workspace TweakPane.xcworkspace -scheme "Pane" -destination "name=iPhone 13 Pro"
+      - name: Run tests macOS
+        run: set -o pipefail && xcodebuild build -workspace TweakPane.xcworkspace -scheme "Demo-macOS" -destination "platform=macOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcbeautify
